@@ -9,11 +9,11 @@
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
-:root {
-  --black:#090806;
-  --gold:#c9a46a;
+:root{
+  --black:#080705;
+  --gold:#d9b16f;
   --cream:#f5eee3;
-  --muted:#b8aea0;
+  --muted:#b8ad9d;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
@@ -25,192 +25,252 @@ body{
 }
 nav{
   position:fixed;
-  top:0;width:100%;z-index:100;
-  display:flex;justify-content:space-between;
-  align-items:center;padding:22px 5%;
-  background:rgba(9,8,6,.94);
-  border-bottom:1px solid rgba(201,164,106,.2);
+  top:0;left:0;width:100%;
+  z-index:100;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  padding:20px 5%;
+  background:rgba(8,7,5,.94);
+  border-bottom:1px solid rgba(217,177,111,.3);
   backdrop-filter:blur(15px);
 }
 .brand{
   font-family:'Cormorant Garamond',serif;
-  font-size:29px;font-weight:700;
-  letter-spacing:4px;color:var(--gold);
+  color:var(--gold);
+  font-size:29px;
+  font-weight:700;
+  letter-spacing:4px;
 }
-.nav-links{display:flex;gap:30px}
+.nav-links{display:flex;gap:28px}
 .nav-links a{
-  color:white;text-decoration:none;
-  font-size:12px;letter-spacing:1.5px;
+  text-decoration:none;
+  color:#eee;
+  font-size:12px;
+  letter-spacing:1.5px;
   transition:.3s;
 }
 .nav-links a:hover{color:var(--gold)}
+
 .hero{
-  min-height:100vh;padding:145px 7% 90px;
-  display:flex;flex-direction:column;
-  align-items:center;justify-content:center;
-  text-align:center;position:relative;overflow:hidden;
-  background:radial-gradient(ellipse at center,#261b10,#100d09 55%,#090806 80%);
+  min-height:100vh;
+  padding:140px 6% 85px;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  position:relative;
+  overflow:hidden;
+  background:radial-gradient(ellipse at center,#2b1c0d,#100c07 52%,#080705 85%);
 }
-.hero::before,.hero::after{
-  content:"";position:absolute;border-radius:50%;
-  pointer-events:none;
+.orbit{
+  position:absolute;
+  width:620px;height:620px;
+  border:1px solid rgba(217,177,111,.2);
+  border-radius:50%;
+  animation:rotate 50s linear infinite;
 }
-.hero::before{
-  width:570px;height:570px;
-  border:1px solid rgba(201,164,106,.19);
-  animation:rotate 35s linear infinite;
-}
-.hero::after{
-  width:430px;height:430px;
-  border:1px dashed rgba(201,164,106,.2);
-  animation:rotate 25s linear infinite reverse;
+.orbit:after{
+  content:"";
+  position:absolute;
+  inset:48px;
+  border:1px dashed rgba(217,177,111,.2);
+  border-radius:50%;
 }
 @keyframes rotate{to{transform:rotate(360deg)}}
 
-.logo-wrap{
-  width:190px;height:190px;
-  border-radius:50%;overflow:hidden;
+/* CUSTOM LE NOIR LOGO */
+.logo{
+  width:195px;
+  height:195px;
+  position:relative;
+  z-index:2;
+  margin-bottom:38px;
+  border-radius:50%;
+  background:#000;
   border:2px solid var(--gold);
-  padding:4px;background:#000;
-  position:relative;z-index:2;
-  margin-bottom:45px;
-  box-shadow:0 0 40px rgba(201,164,106,.22);
+  box-shadow:0 0 35px rgba(217,177,111,.3);
   animation:float 4s ease-in-out infinite;
 }
-.logo-wrap img{
-  width:100%;height:100%;
-  object-fit:cover;border-radius:50%;
-  display:block;
-}
+.logo svg{width:100%;height:100%;display:block}
 @keyframes float{
   0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-10px)}
+  50%{transform:translateY(-9px)}
 }
+
 .eyebrow{
-  color:var(--gold);letter-spacing:6px;
-  font-size:13px;margin-bottom:30px;
-  position:relative;z-index:2;
+  position:relative;
+  z-index:2;
+  color:var(--gold);
+  letter-spacing:6px;
+  font-size:12px;
+  margin-bottom:25px;
 }
 .hero h1{
+  position:relative;
+  z-index:2;
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(55px,9vw,115px);
-  line-height:.95;max-width:1100px;
-  font-weight:600;position:relative;z-index:2;
+  font-size:clamp(52px,8vw,108px);
+  line-height:.95;
+  font-weight:600;
+  max-width:1150px;
 }
 .hero h1 span{color:var(--gold)}
 .hero p{
-  color:var(--muted);max-width:780px;
-  line-height:2;margin:35px auto;
-  font-size:16px;position:relative;z-index:2;
+  position:relative;
+  z-index:2;
+  max-width:780px;
+  color:var(--muted);
+  line-height:2;
+  margin:30px 0;
+  font-size:16px;
 }
 .btn{
-  display:inline-block;padding:16px 35px;
+  position:relative;
+  z-index:2;
+  display:inline-block;
+  padding:16px 34px;
   border:1px solid var(--gold);
-  color:var(--gold);text-decoration:none;
-  letter-spacing:2px;font-size:12px;
-  transition:.35s;position:relative;z-index:2;
+  color:var(--gold);
+  text-decoration:none;
+  font-size:12px;
+  letter-spacing:2px;
+  transition:.35s;
 }
 .btn:hover{
-  background:var(--gold);color:#090806;
+  background:var(--gold);
+  color:#080705;
   transform:translateY(-4px);
 }
+
 .marquee{
-  overflow:hidden;white-space:nowrap;
-  border-top:1px solid rgba(201,164,106,.3);
-  border-bottom:1px solid rgba(201,164,106,.3);
-  padding:22px 0;color:var(--gold);
-  letter-spacing:5px;
+  overflow:hidden;
+  white-space:nowrap;
+  padding:19px 0;
+  border-top:1px solid #75572e;
+  border-bottom:1px solid #75572e;
+  color:var(--gold);
   font-family:'Cormorant Garamond',serif;
-  font-size:24px;
+  font-size:22px;
+  letter-spacing:4px;
 }
 .marquee span{
   display:inline-block;
-  animation:move 25s linear infinite;
+  animation:slide 25s linear infinite;
 }
-@keyframes move{
+@keyframes slide{
   from{transform:translateX(0)}
   to{transform:translateX(-50%)}
 }
-section{padding:110px 8%}
-.section-label{
-  color:var(--gold);letter-spacing:5px;
-  font-size:12px;margin-bottom:20px;
+
+section{padding:100px 8%}
+.label{
+  color:var(--gold);
+  letter-spacing:5px;
+  font-size:12px;
+  margin-bottom:20px;
 }
-.section-title{
+.heading{
   font-family:'Cormorant Garamond',serif;
-  font-size:clamp(42px,6vw,75px);
-  line-height:1;margin-bottom:30px;
+  font-size:clamp(42px,6vw,72px);
+  line-height:1;
+  margin-bottom:25px;
 }
 .about{
-  text-align:center;max-width:1000px;margin:auto;
+  text-align:center;
+  max-width:950px;
+  margin:auto;
 }
-.about p{
-  color:var(--muted);font-size:16px;line-height:2.1;
+.about p,.bulk p{
+  color:var(--muted);
+  line-height:2;
+  font-size:16px;
 }
 .experience{
-  background:#100e0a;text-align:center;
+  text-align:center;
+  background:#100d08;
 }
 .cards{
-  display:grid;grid-template-columns:repeat(3,1fr);
-  gap:25px;margin-top:55px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:24px;
+  margin-top:50px;
 }
 .card{
-  border:1px solid rgba(201,164,106,.25);
-  padding:45px 25px;
-  background:linear-gradient(145deg,#1b160f,#0d0b08);
+  padding:42px 25px;
+  border:1px solid rgba(217,177,111,.3);
+  background:linear-gradient(145deg,#21170c,#0b0906);
   transition:.4s;
 }
 .card:hover{
   transform:translateY(-10px);
   border-color:var(--gold);
-  box-shadow:0 15px 40px rgba(0,0,0,.35);
+  box-shadow:0 15px 35px #0008;
 }
 .number{
-  color:var(--gold);
   font-family:'Cormorant Garamond',serif;
-  font-size:42px;margin-bottom:20px;
+  font-size:42px;
+  color:var(--gold);
+  margin-bottom:18px;
 }
 .card h3{
   font-family:'Cormorant Garamond',serif;
-  font-size:30px;margin-bottom:15px;
+  font-size:29px;
+  margin-bottom:15px;
 }
-.card p{color:var(--muted);line-height:1.8;font-size:14px}
+.card p{
+  color:var(--muted);
+  font-size:14px;
+  line-height:1.8;
+}
 .bulk{
   text-align:center;
-  background:radial-gradient(ellipse,#251a10,#090806 70%);
+  background:radial-gradient(ellipse,#24180c,#080705 75%);
 }
 .bulk p{
-  max-width:700px;margin:0 auto 30px;
-  color:var(--muted);line-height:2;
+  max-width:700px;
+  margin:0 auto 30px;
 }
-.contact{text-align:center;background:#100e0a}
+.contact{
+  text-align:center;
+  background:#100d08;
+}
 .contact p{color:var(--muted);margin:15px 0 30px}
 .contact-links{
-  display:flex;justify-content:center;
-  flex-wrap:wrap;gap:15px;
+  display:flex;
+  justify-content:center;
+  gap:15px;
+  flex-wrap:wrap;
 }
 footer{
-  text-align:center;padding:35px 15px;
-  color:#8d8172;font-size:12px;
+  text-align:center;
+  padding:35px 15px;
+  color:#938574;
+  font-size:12px;
   letter-spacing:2px;
-  border-top:1px solid rgba(201,164,106,.2);
+  border-top:1px solid rgba(217,177,111,.25);
 }
 .reveal{
-  opacity:0;transform:translateY(35px);
-  transition:opacity .8s ease,transform .8s ease;
+  opacity:0;
+  transform:translateY(30px);
+  transition:.8s;
 }
-.reveal.show{opacity:1;transform:translateY(0)}
+.reveal.show{
+  opacity:1;
+  transform:translateY(0);
+}
 
 @media(max-width:750px){
-  nav{padding:18px 4%}
+  nav{padding:17px 4%}
   .brand{font-size:19px;letter-spacing:2px}
   .nav-links{gap:10px}
   .nav-links a{font-size:8px;letter-spacing:.3px}
-  .hero{padding-top:130px}
-  .logo-wrap{width:155px;height:155px}
-  .eyebrow{letter-spacing:3px;font-size:10px}
+  .hero{padding-top:125px}
+  .logo{width:165px;height:165px}
+  .eyebrow{font-size:10px;letter-spacing:3px}
   .hero p{font-size:14px}
-  section{padding:80px 6%}
+  section{padding:75px 6%}
   .cards{grid-template-columns:1fr}
 }
 @media(max-width:390px){
@@ -236,11 +296,66 @@ footer{
 
 <header class="hero" id="home">
 
-  <div class="logo-wrap">
-    <img
-      alt="Le Noir Café Logo"
-      src="data:image/jpeg;base64,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"
-    >
+  <!-- LE NOIR CAFÉ LOGO: DRAWN DIRECTLY IN SVG -->
+  <div class="logo">
+    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="100" cy="100" r="93" fill="#000"/>
+      <circle cx="100" cy="100" r="88" fill="none" stroke="#d9b16f" stroke-width="1.8"/>
+
+      <!-- Steam -->
+      <path d="M91 57 C76 44 105 36 95 21
+               M105 58 C121 43 98 35 110 25"
+            fill="none" stroke="#d9b16f" stroke-width="3.5"
+            stroke-linecap="round"/>
+
+      <!-- Cup -->
+      <path d="M63 62 Q100 54 137 62 L129 112
+               Q126 126 101 127 Q76 126 72 112 Z"
+            fill="none" stroke="#d9b16f" stroke-width="3"/>
+
+      <path d="M137 70 Q165 66 158 91
+               Q153 108 132 105"
+            fill="none" stroke="#d9b16f" stroke-width="3"/>
+
+      <path d="M72 69 L128 69 M80 78 L86 112
+               M96 78 L98 117 M113 78 L109 115"
+            fill="none" stroke="#d9b16f" stroke-width="2"/>
+
+      <path d="M69 132 Q100 141 133 132"
+            fill="none" stroke="#d9b16f" stroke-width="2"/>
+
+      <!-- Coffee beans -->
+      <ellipse cx="143" cy="120" rx="12" ry="6"
+               transform="rotate(-28 143 120)"
+               fill="none" stroke="#d9b16f" stroke-width="2"/>
+      <path d="M135 125 Q143 118 151 114"
+            fill="none" stroke="#d9b16f" stroke-width="1.5"/>
+
+      <ellipse cx="153" cy="132" rx="10" ry="5"
+               transform="rotate(20 153 132)"
+               fill="none" stroke="#d9b16f" stroke-width="2"/>
+      <path d="M145 129 Q153 132 160 135"
+            fill="none" stroke="#d9b16f" stroke-width="1.4"/>
+
+      <!-- Main brand text -->
+      <text x="100" y="157"
+            text-anchor="middle"
+            fill="#d9b16f"
+            font-family="Georgia,serif"
+            font-size="28"
+            font-weight="bold"
+            letter-spacing="-1">LE NOIR</text>
+
+      <path d="M25 166 H66 M134 166 H175"
+            stroke="#d9b16f" stroke-width="1.5"/>
+
+      <text x="100" y="180"
+            text-anchor="middle"
+            fill="#d9b16f"
+            font-family="Georgia,serif"
+            font-size="15"
+            letter-spacing="5">CAFÉ</text>
+    </svg>
   </div>
 
   <div class="eyebrow">A SIGNATURE EXPERIENCE · THALASSERY</div>
@@ -257,7 +372,7 @@ footer{
     Now accepting online bulk order enquiries.
   </p>
 
-  <a href="#contact" class="btn">DISCOVER LE NOIR</a>
+  <a href="#contact" class="btn">DISCOVER LE NOIR →</a>
 </header>
 
 <div class="marquee">
@@ -270,8 +385,8 @@ footer{
 
 <section id="about">
   <div class="about reveal">
-    <div class="section-label">OUR STORY</div>
-    <h2 class="section-title">More Than Just a Café.</h2>
+    <div class="label">OUR STORY</div>
+    <h2 class="heading">More Than Just a Café.</h2>
     <p>
       Welcome to Le Noir Café, where flavour meets elegance.
       We believe every meal should be an experience worth
@@ -284,8 +399,8 @@ footer{
 
 <section class="experience" id="experience">
   <div class="reveal">
-    <div class="section-label">THE LE NOIR EXPERIENCE</div>
-    <h2 class="section-title">Made for Every Moment.</h2>
+    <div class="label">THE LE NOIR EXPERIENCE</div>
+    <h2 class="heading">Made for Every Moment.</h2>
   </div>
 
   <div class="cards">
@@ -311,8 +426,8 @@ footer{
 
 <section class="bulk" id="bulk">
   <div class="reveal">
-    <div class="section-label">BULK ORDERS & EVENTS</div>
-    <h2 class="section-title">Something Special Planned?</h2>
+    <div class="label">BULK ORDERS & EVENTS</div>
+    <h2 class="heading">Something Special Planned?</h2>
     <p>
       Make your gatherings more memorable with Le Noir Café.
       Contact our team to discuss bulk orders and your requirements.
@@ -323,17 +438,13 @@ footer{
 
 <section class="contact" id="contact">
   <div class="reveal">
-    <div class="section-label">GET IN TOUCH</div>
-    <h2 class="section-title">Let's Connect.</h2>
+    <div class="label">GET IN TOUCH</div>
+    <h2 class="heading">Let's Connect.</h2>
     <p>Le Noir Café · Thalassery, Kerala</p>
 
     <div class="contact-links">
-      <a class="btn" href="https://www.instagram.com/le_noircafe/" target="_blank">
-        INSTAGRAM
-      </a>
-      <a class="btn" href="https://wa.me/91XXXXXXXXXX" target="_blank">
-        WHATSAPP
-      </a>
+      <a class="btn" href="https://www.instagram.com/le_noircafe/" target="_blank">INSTAGRAM</a>
+      <a class="btn" href="https://wa.me/91XXXXXXXXXX" target="_blank">WHATSAPP</a>
     </div>
   </div>
 </section>
@@ -348,16 +459,16 @@ footer{
 document.getElementById("year").textContent =
   new Date().getFullYear();
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
       entry.target.classList.add("show");
     }
   });
-}, {threshold:0.15});
+},{threshold:0.15});
 
-document.querySelectorAll(".reveal").forEach(element => {
-  observer.observe(element);
+document.querySelectorAll(".reveal").forEach(el=>{
+  observer.observe(el);
 });
 </script>
 
