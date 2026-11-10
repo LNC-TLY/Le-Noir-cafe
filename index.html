@@ -4,82 +4,265 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#090807">
 <title>Le Noir Café | Thalassery</title>
+
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 :root{--gold:#d9b47e;--muted:#b1a696}
-body{background:#090807;color:#f8f4ed;font-family:'DM Sans',sans-serif;overflow-x:hidden}
-header{position:fixed;top:0;width:100%;z-index:100;background:rgba(9,8,7,.92);backdrop-filter:blur(15px);border-bottom:1px solid #d9b47e30}
-nav{max-width:1200px;margin:auto;padding:16px 5%;display:flex;justify-content:space-between;align-items:center}
-.brand{font:600 21px 'Playfair Display',serif;letter-spacing:3px;color:var(--gold);text-decoration:none}
+body{
+background:#090807;color:#f8f4ed;
+font-family:'DM Sans',sans-serif;overflow-x:hidden
+}
+header{
+position:fixed;top:0;width:100%;z-index:100;
+background:rgba(9,8,7,.93);
+backdrop-filter:blur(15px);
+border-bottom:1px solid #d9b47e30
+}
+nav{
+max-width:1200px;margin:auto;padding:16px 5%;
+display:flex;justify-content:space-between;align-items:center
+}
+.brand{
+font:600 21px 'Playfair Display',serif;
+letter-spacing:3px;color:var(--gold);text-decoration:none
+}
 .navlinks{display:flex;gap:25px}
-.navlinks a{color:white;text-decoration:none;font-size:11px;letter-spacing:1px;transition:.3s}
+.navlinks a{
+color:white;text-decoration:none;font-size:11px;
+letter-spacing:1px;transition:.3s
+}
 .navlinks a:hover{color:var(--gold)}
-.menu-btn{display:none;background:none;border:0;color:var(--gold);font-size:27px}
-.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:120px 20px 80px;position:relative;overflow:hidden;background:radial-gradient(ellipse at center,#302313 0%,#090807 65%)}
-.hero:before,.hero:after{content:"";position:absolute;border-radius:50%;border:1px solid #d9b47e30;animation:rotate 40s linear infinite}
-.hero:before{width:650px;height:650px}
-.hero:after{width:500px;height:500px;border-style:dashed;animation-direction:reverse}
+.menu-btn{
+display:none;background:none;border:0;
+color:var(--gold);font-size:27px
+}
+
+/* HERO */
+.hero{
+min-height:100vh;display:flex;align-items:center;
+justify-content:center;text-align:center;
+padding:125px 20px 80px;position:relative;
+overflow:hidden;
+background:radial-gradient(ellipse at center,#302313 0%,#090807 65%)
+}
+.hero:before,.hero:after{
+content:"";position:absolute;border-radius:50%;
+border:1px solid #d9b47e30;pointer-events:none
+}
+.hero:before{
+width:min(650px,90vw);height:min(650px,90vw);
+animation:rotate 40s linear infinite
+}
+.hero:after{
+width:min(500px,72vw);height:min(500px,72vw);
+border-style:dashed;animation:rotate 30s linear infinite reverse
+}
 .hero-content{position:relative;z-index:2}
-.logo{width:180px;height:180px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 55px #d9b47e35;animation:float 4s ease-in-out infinite}
-.tag{color:var(--gold);letter-spacing:5px;font-size:11px;margin:30px 0 20px}
-h1{font:500 clamp(43px,8vw,85px)/1.1 'Playfair Display',serif}
+
+/* UPDATED CAFE LOGO */
+.logo{
+width:190px;height:190px;
+object-fit:contain;border-radius:50%;
+padding:5px;background:#090807;
+border:2px solid var(--gold);
+box-shadow:0 0 25px #d9b47e50,0 0 65px #d9b47e20;
+animation:logoFloat 4s ease-in-out infinite
+}
+.tag{
+color:var(--gold);letter-spacing:5px;
+font-size:11px;margin:30px 0 20px
+}
+h1{
+font:500 clamp(43px,8vw,85px)/1.1 'Playfair Display',serif
+}
 h1 span,h2 span{color:var(--gold)}
-.hero p{max-width:620px;margin:25px auto;color:#c1b7a8;font-size:14px;line-height:2}
-.buttons{display:flex;justify-content:center;gap:15px;flex-wrap:wrap}
-.btn{display:inline-block;padding:15px 25px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:11px;letter-spacing:2px;transition:.3s}
+.hero p{
+max-width:620px;margin:25px auto;
+color:#c1b7a8;font-size:14px;line-height:2
+}
+.buttons{
+display:flex;justify-content:center;
+gap:15px;flex-wrap:wrap
+}
+.btn{
+display:inline-block;padding:15px 25px;
+border:1px solid var(--gold);color:var(--gold);
+text-decoration:none;font-size:11px;
+letter-spacing:2px;transition:.3s
+}
 .btn.gold{background:var(--gold);color:#090807}
-.btn:hover{transform:translateY(-5px);box-shadow:0 10px 30px #d9b47e30}
-.moving-text{overflow:hidden;background:var(--gold);color:#100c07;padding:15px 0;white-space:nowrap;font:600 16px 'Playfair Display',serif;letter-spacing:3px}
-.moving-text div{display:inline-block;animation:marquee 24s linear infinite}
+.btn:hover{
+transform:translateY(-5px);
+box-shadow:0 10px 30px #d9b47e30
+}
+
+/* MOVING BANNER */
+.moving-text{
+overflow:hidden;background:var(--gold);
+color:#100c07;padding:15px 0;
+white-space:nowrap;
+font:600 16px 'Playfair Display',serif;
+letter-spacing:3px
+}
+.moving-text div{
+display:inline-block;animation:marquee 24s linear infinite
+}
 .moving-text span{padding:0 30px}
+
+/* GENERAL */
 section{padding:100px 7%}
-.small-title{color:var(--gold);font-size:10px;letter-spacing:4px;margin-bottom:20px}
-h2{font:500 clamp(36px,5vw,60px)/1.15 'Playfair Display',serif;margin-bottom:25px}
-.description{color:var(--muted);font-size:14px;line-height:2;max-width:620px}
-.story,.bulk,.contact-inner{display:grid;grid-template-columns:1fr 1fr;gap:55px;align-items:center;max-width:1150px;margin:auto}
-.seal{min-height:350px;border:1px solid #d9b47e55;background:linear-gradient(140deg,#21190e,#0c0a08);display:flex;align-items:center;justify-content:center;position:relative}
-.seal div{font-size:95px;animation:float 4s infinite}
-.seal:before{content:"";position:absolute;width:260px;height:260px;border:1px solid #d9b47e55;border-radius:50%}
-.seal:after{content:"SAVOUR THE MOMENT";position:absolute;bottom:25px;color:var(--gold);letter-spacing:4px;font-size:10px}
-.experience{background:#100e0b;border-block:1px solid #d9b47e25}
+.small-title{
+color:var(--gold);font-size:10px;
+letter-spacing:4px;margin-bottom:20px
+}
+h2{
+font:500 clamp(36px,5vw,60px)/1.15 'Playfair Display',serif;
+margin-bottom:25px
+}
+.description{
+color:var(--muted);font-size:14px;
+line-height:2;max-width:620px
+}
+
+/* ABOUT */
+.story{
+display:grid;grid-template-columns:1fr 1fr;
+gap:60px;align-items:center;
+max-width:1150px;margin:auto
+}
+.seal{
+min-height:350px;border:1px solid #d9b47e55;
+background:linear-gradient(140deg,#21190e,#0c0a08);
+display:flex;align-items:center;
+justify-content:center;position:relative
+}
+.seal div{font-size:95px;animation:logoFloat 4s infinite}
+.seal:before{
+content:"";position:absolute;width:260px;height:260px;
+border:1px solid #d9b47e55;border-radius:50%
+}
+.seal:after{
+content:"SAVOUR THE MOMENT";
+position:absolute;bottom:25px;
+color:var(--gold);letter-spacing:4px;font-size:10px
+}
+
+/* EXPERIENCE */
+.experience{
+background:#100e0b;
+border-block:1px solid #d9b47e25
+}
 .center{text-align:center}
 .center .description{margin:auto}
-.cards{max-width:1150px;margin:50px auto 0;display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-.card{padding:35px 27px;background:linear-gradient(145deg,#21190f,#100d09);border:1px solid #d9b47e40;transition:.4s}
-.card:hover{transform:translateY(-10px);border-color:var(--gold);box-shadow:0 15px 35px #d9b47e15}
+.cards{
+max-width:1150px;margin:50px auto 0;
+display:grid;grid-template-columns:repeat(3,1fr);gap:20px
+}
+.card{
+padding:35px 27px;
+background:linear-gradient(145deg,#21190f,#100d09);
+border:1px solid #d9b47e40;transition:.4s
+}
+.card:hover{
+transform:translateY(-10px);
+border-color:var(--gold);
+box-shadow:0 15px 35px #d9b47e15
+}
 .card .icon{font-size:30px;margin-bottom:25px}
-.card h3,.bulk-box h3,.contact-box h3{font:500 25px 'Playfair Display',serif;color:var(--gold);margin-bottom:15px}
-.card p,.bulk-box p,.contact-box p{font-size:13px;color:var(--muted);line-height:1.9}
-.bulk-box{padding:35px;background:#15110c;border:1px solid #d9b47e50}
+.card h3,.bulk-box h3,.contact-box h3{
+font:500 25px 'Playfair Display',serif;
+color:var(--gold);margin-bottom:15px
+}
+.card p,.bulk-box p,.contact-box p{
+font-size:13px;color:var(--muted);line-height:1.9
+}
+
+/* BULK ORDERS */
+.bulk{
+max-width:1150px;margin:auto;
+display:grid;grid-template-columns:1fr 1fr;
+gap:55px;align-items:center
+}
+.bulk-box{
+padding:35px;background:#15110c;
+border:1px solid #d9b47e50
+}
+.bulk-box h3{font-size:30px}
 .bulk-box ul{list-style:none;margin-top:20px}
-.bulk-box li{padding:12px 0;border-bottom:1px solid #ffffff15;font-size:13px;color:#ddd0bd}
+.bulk-box li{
+padding:12px 0;border-bottom:1px solid #ffffff15;
+font-size:13px;color:#ddd0bd
+}
 .bulk-box li:before{content:"✦ ";color:var(--gold)}
-.experience .cards{margin-top:50px}
-.contact{background:linear-gradient(120deg,#20170c,#090807);border-top:1px solid #d9b47e40}
-.contact-inner{max-width:1100px}
-.contact-box{padding:35px;border:1px solid #d9b47e50;background:#0e0c09}
-.socials{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.socials a{padding:14px 18px;border:1px solid var(--gold);color:var(--gold);text-decoration:none;font-size:11px;letter-spacing:1px}
+
+/* CONTACT */
+.contact{
+background:linear-gradient(120deg,#20170c,#090807);
+border-top:1px solid #d9b47e40
+}
+.contact-inner{
+max-width:1100px;margin:auto;
+display:grid;grid-template-columns:1fr 1fr;
+gap:50px;align-items:center
+}
+.contact-box{
+padding:35px;border:1px solid #d9b47e50;
+background:#0e0c09
+}
+.socials{
+display:flex;gap:12px;flex-wrap:wrap;margin-top:25px
+}
+.socials a{
+padding:14px 18px;border:1px solid var(--gold);
+color:var(--gold);text-decoration:none;
+font-size:11px;letter-spacing:1px;transition:.3s
+}
 .socials a:hover{background:var(--gold);color:#090807}
-footer{padding:30px 6%;text-align:center;border-top:1px solid #ffffff15;color:#a99b88;font-size:11px}
-footer strong{display:block;color:var(--gold);font:500 22px 'Playfair Display',serif;letter-spacing:3px;margin-bottom:10px}
-.reveal{opacity:0;transform:translateY(35px);transition:all .9s ease}
+
+/* FOOTER */
+footer{
+padding:30px 6%;text-align:center;
+border-top:1px solid #ffffff15;
+color:#a99b88;font-size:11px
+}
+footer strong{
+display:block;color:var(--gold);
+font:500 22px 'Playfair Display',serif;
+letter-spacing:3px;margin-bottom:10px
+}
+
+/* SCROLL ANIMATION */
+.reveal{
+opacity:0;transform:translateY(35px);
+transition:all .9s ease
+}
 .reveal.show{opacity:1;transform:translateY(0)}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-13px)}}
+
+@keyframes logoFloat{
+0%,100%{transform:translateY(0)}
+50%{transform:translateY(-12px)}
+}
 @keyframes rotate{to{transform:rotate(360deg)}}
 @keyframes marquee{to{transform:translateX(-50%)}}
+
+/* MOBILE */
 @media(max-width:800px){
-.navlinks{display:none;position:absolute;top:65px;right:15px;flex-direction:column;background:#100e0b;padding:25px;border:1px solid var(--gold);gap:20px}
+.navlinks{
+display:none;position:absolute;top:65px;right:15px;
+flex-direction:column;background:#100e0b;
+padding:25px;border:1px solid var(--gold);gap:20px
+}
 .navlinks.open{display:flex}
 .menu-btn{display:block}
 .story,.bulk,.contact-inner{grid-template-columns:1fr}
 .cards{grid-template-columns:1fr}
 section{padding:75px 7%}
-.logo{width:150px;height:150px}
+.logo{width:155px;height:155px}
 }
 @media(prefers-reduced-motion:reduce){
 *,*:before,*:after{animation:none!important;scroll-behavior:auto!important}
@@ -87,6 +270,7 @@ section{padding:75px 7%}
 }
 </style>
 </head>
+
 <body>
 
 <header>
@@ -103,12 +287,24 @@ section{padding:75px 7%}
 </nav>
 </header>
 
+<!-- HERO -->
 <section class="hero" id="home">
 <div class="hero-content">
-<img src="logo.jpg" class="logo" alt="Le Noir Café Logo">
+
+<img src="logo.jpg" class="logo" alt="Le Noir Café Official Logo">
+
 <div class="tag">A SIGNATURE EXPERIENCE · THALASSERY</div>
-<h1>Exceptional Food.<br><span>Beautifully Brought Together.</span></h1>
-<p>Discover the signature flavours of Le Noir Café. Thoughtfully prepared food, memorable moments and a premium culinary experience in Thalassery. Now accepting online bulk order enquiries.</p>
+
+<h1>Exceptional Food.<br>
+<span>Beautifully Brought Together.</span></h1>
+
+<p>
+Discover the signature flavours of Le Noir Café.
+Thoughtfully prepared food, memorable moments and
+a premium culinary experience in Thalassery.
+Now accepting online bulk order enquiries.
+</p>
+
 <div class="buttons">
 <a href="#bulk" class="btn gold">EXPLORE BULK ORDERS</a>
 <a href="#contact" class="btn">ENQUIRE NOW ↗</a>
@@ -127,38 +323,77 @@ section{padding:75px 7%}
 <span>✦ BULK ORDER ENQUIRIES</span>
 </div></div>
 
+<!-- ABOUT -->
 <section id="story">
 <div class="story">
 <div class="reveal">
 <div class="small-title">01 / THE LE NOIR PROMISE</div>
 <h2>A Taste Worth<br><span>Remembering.</span></h2>
-<p class="description">Le Noir Café brings together flavour, care and a love for good food. From everyday favourites to thoughtfully planned food experiences, every detail is guided by quality and a warm sense of hospitality.<br><br>Rooted in Thalassery, we're here to make sharing good food feel a little more special.</p>
+<p class="description">
+Le Noir Café brings together flavour, care and a love
+for good food. From everyday favourites to thoughtfully
+planned food experiences, every detail is guided by
+quality and a warm sense of hospitality.
+<br><br>
+Rooted in Thalassery, we're here to make sharing
+good food feel a little more special.
+</p>
 </div>
+
 <div class="seal reveal"><div>☕</div></div>
 </div>
 </section>
 
+<!-- EXPERIENCE -->
 <section class="experience" id="experience">
 <div class="center reveal">
 <div class="small-title">02 / WHAT WE BRING TO THE TABLE</div>
 <h2>A Premium Food<br><span>Experience.</span></h2>
-<p class="description">Made for sharing, celebrating and enjoying the moments that matter.</p>
+<p class="description">
+Made for sharing, celebrating and enjoying the moments
+that matter.
+</p>
 </div>
+
 <div class="cards">
-<div class="card reveal"><div class="icon">✧</div><h3>Signature Flavours</h3><p>A considered selection of delicious food inspired by the tastes people love.</p></div>
-<div class="card reveal"><div class="icon">♨</div><h3>Curated Food Experiences</h3><p>Thoughtfully arranged food selections for gatherings, celebrations and special occasions.</p></div>
-<div class="card reveal"><div class="icon">◇</div><h3>Made For Sharing</h3><p>Food options for families, groups and moments when you need more to go around.</p></div>
+<div class="card reveal">
+<div class="icon">✧</div>
+<h3>Signature Flavours</h3>
+<p>A considered selection of delicious food inspired by the tastes people love.</p>
+</div>
+
+<div class="card reveal">
+<div class="icon">♨</div>
+<h3>Curated Food Experiences</h3>
+<p>Thoughtfully arranged food selections for gatherings, celebrations and special occasions.</p>
+</div>
+
+<div class="card reveal">
+<div class="icon">◇</div>
+<h3>Made For Sharing</h3>
+<p>Food options for families, groups and moments when you need more to go around.</p>
+</div>
 </div>
 </section>
 
+<!-- BULK ORDERS -->
 <section id="bulk">
 <div class="bulk">
 <div class="reveal">
 <div class="small-title">03 / THALASSERY FOOD ONLINE</div>
 <h2>Planning For A Crowd?<br><span>We've Got You.</span></h2>
-<p class="description">Looking for food in larger quantities? Send us your bulk order enquiry online. Share your preferred date, guest count, food preferences and delivery location. Our team will get back to you with availability and details.</p><br>
+<p class="description">
+Looking for food in larger quantities?
+Send us your bulk order enquiry online.
+Share your preferred date, guest count,
+food preferences and delivery location.
+Our team will get back to you with availability
+and details.
+</p>
+<br>
 <a href="#contact" class="btn gold">SEND AN ENQUIRY ↗</a>
 </div>
+
 <div class="bulk-box reveal">
 <h3>Good Food Brings Everyone Together.</h3>
 <p>Tell us what you have in mind. We'll connect with you directly to discuss your requirements.</p>
@@ -173,21 +408,32 @@ section{padding:75px 7%}
 </div>
 </section>
 
+<!-- CONTACT -->
 <section class="contact" id="contact">
 <div class="contact-inner">
 <div class="reveal">
 <div class="small-title">04 / LET'S TALK FOOD</div>
 <h2>Your Enquiry Is<br><span>One Message Away.</span></h2>
-<p class="description">For menu details, availability, bulk orders and special requests, reach out to Le Noir Café on WhatsApp or Instagram. We look forward to hearing from you.</p>
+<p class="description">
+For menu details, availability, bulk orders and special
+requests, reach out to Le Noir Café on WhatsApp
+or Instagram. We look forward to hearing from you.
+</p>
 </div>
+
 <div class="contact-box reveal">
 <h3>Enquire Directly.</h3>
 <p>Message us with your order requirements, preferred date, quantity and location. We'll reply with the next steps.</p>
+
 <div class="socials">
-<a id="whatsapp" href="#" target="_blank">WHATSAPP ENQUIRY ↗</a>
-<a href="https://www.instagram.com/le_noircafe/" target="_blank">INSTAGRAM DM ↗</a>
+<a id="whatsapp" href="#" target="_blank" rel="noopener">WHATSAPP ENQUIRY ↗</a>
+<a href="https://www.instagram.com/le_noircafe/" target="_blank" rel="noopener">INSTAGRAM DM ↗</a>
 </div>
-<p style="margin-top:22px">THALASSERY, KERALA<br>ONLINE BULK ORDER ENQUIRIES</p>
+
+<p style="margin-top:22px">
+THALASSERY, KERALA<br>
+ONLINE BULK ORDER ENQUIRIES
+</p>
 </div>
 </div>
 </section>
@@ -200,25 +446,33 @@ Signature Flavours. Memorable Moments.
 </footer>
 
 <script>
+/* ADD THE REAL WHATSAPP NUMBER HERE */
 const WHATSAPP_NUMBER = "91XXXXXXXXXX";
-const message = "Hello Le Noir Café! I would like to enquire about your food and bulk orders in Thalassery. Please share your menu, pricing and availability.";
 
-document.getElementById("whatsapp").href =
-"https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(message);
+const message =
+"Hello Le Noir Café! I would like to enquire about your food and bulk orders in Thalassery. Please share your menu, pricing and availability.";
 
-document.getElementById("whatsapp").onclick = function(e){
+const whatsapp = document.getElementById("whatsapp");
+
+whatsapp.href =
+"https://wa.me/" + WHATSAPP_NUMBER +
+"?text=" + encodeURIComponent(message);
+
+whatsapp.onclick = function(e){
 if(WHATSAPP_NUMBER.includes("X")){
 e.preventDefault();
-alert("Please add the café's WhatsApp number in the code.");
+alert("Please add the café's WhatsApp number in the website code.");
 }
 };
 
-document.getElementById("year").textContent = new Date().getFullYear();
+document.getElementById("year").textContent =
+new Date().getFullYear();
 
 function toggleMenu(){
 document.getElementById("navlinks").classList.toggle("open");
 }
 
+if("IntersectionObserver" in window){
 const observer = new IntersectionObserver(entries=>{
 entries.forEach(entry=>{
 if(entry.isIntersecting){
@@ -228,7 +482,15 @@ observer.unobserve(entry.target);
 });
 },{threshold:0.12});
 
-document.querySelectorAll(".reveal").forEach(el=>observer.observe(el));
+document.querySelectorAll(".reveal").forEach(el=>{
+observer.observe(el);
+});
+}else{
+document.querySelectorAll(".reveal").forEach(el=>{
+el.classList.add("show");
+});
+}
 </script>
+
 </body>
 </html>
