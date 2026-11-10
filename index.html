@@ -1,236 +1,80 @@
 
-<!DOCTYPE html> 
+<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Le Noir Café | A Taste of Malabar</title>
-<meta name="description" content="Discover the flavours of Malabar at Le Noir Café, Thalassery.">
+<title>Le Noir Café | Thalassery Kadikal</title>
+<meta name="description" content="Discover traditional Thalassery and Malabar kadikal at Le Noir Café.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --cream:#f4f0e6;
-  --paper:#fffdf7;
-  --olive:#344b37;
-  --olive2:#526b4c;
-  --orange:#c66e48;
-  --ink:#252a22;
+  --cream:#f4f0e6;--paper:#fffdf7;--olive:#344b37;
+  --olive2:#526b4c;--orange:#c66e48;--ink:#252a22;
   --muted:#77786e;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
-body{
-  background:var(--cream);
-  color:var(--ink);
-  font-family:'DM Sans',sans-serif;
-  overflow-x:hidden;
-}
+body{background:var(--cream);color:var(--ink);font-family:'DM Sans',sans-serif;overflow-x:hidden}
 a{text-decoration:none;color:inherit}
 img{display:block;width:100%;object-fit:cover}
 button{font:inherit}
-.topline{
-  background:var(--olive);
-  color:#f8f3e7;
-  text-align:center;
-  padding:10px;
-  font-size:10px;
-  letter-spacing:3px;
-  text-transform:uppercase;
-}
-nav{
-  height:90px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  padding:0 7%;
-  background:var(--paper);
-  position:sticky;
-  top:0;
-  z-index:100;
-  border-bottom:1px solid #e7e1d4;
-}
-.logo{
-  width:68px;height:68px;
-  position:relative;z-index:2;
-  border-radius:50%;
-  background:#000;
-  border:2px solid #d9b16f;
-  box-shadow:0 0 20px rgba(217,177,111,.18);
-}
+.topline{background:var(--olive);color:#f8f3e7;text-align:center;padding:10px;font-size:10px;letter-spacing:3px;text-transform:uppercase}
+nav{height:90px;display:flex;align-items:center;justify-content:space-between;padding:0 7%;background:var(--paper);position:sticky;top:0;z-index:100;border-bottom:1px solid #e7e1d4}
+.logo{width:68px;height:68px;position:relative;z-index:2;border-radius:50%;background:#000;border:2px solid #d9b16f;box-shadow:0 0 20px rgba(217,177,111,.18)}
 .logo svg{width:100%;height:100%;display:block}
 .navlinks{display:flex;gap:34px;align-items:center}
-.navlinks a{
-  font-size:11px;
-  font-weight:700;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  transition:.3s;
-}
+.navlinks a{font-size:11px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;transition:.3s}
 .navlinks a:hover{color:var(--orange)}
-.nav-cta{
-  background:var(--olive);
-  color:white!important;
-  padding:15px 22px;
-  border-radius:3px;
-}
+.nav-cta{background:var(--olive);color:white!important;padding:15px 22px;border-radius:3px}
 .menu-btn{display:none;background:none;border:0;font-size:27px;color:var(--olive)}
-.hero{
-  min-height:690px;
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  align-items:center;
-  padding:65px 7%;
-  gap:50px;
-  position:relative;
-  overflow:hidden;
-}
-.hero:before{
-  content:"";
-  position:absolute;
-  width:470px;height:470px;
-  border:1px solid #d9cdb8;
-  border-radius:50%;
-  left:-260px;bottom:-260px;
-}
+.hero{min-height:690px;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:65px 7%;gap:50px;position:relative;overflow:hidden}
+.hero:before{content:"";position:absolute;width:470px;height:470px;border:1px solid #d9cdb8;border-radius:50%;left:-260px;bottom:-260px}
 .hero-copy{position:relative;z-index:2;animation:rise 1s ease both}
-.eyebrow{
-  color:var(--orange);
-  font-size:11px;
-  letter-spacing:4px;
-  font-weight:700;
-  text-transform:uppercase;
-  margin-bottom:25px;
-}
+.eyebrow{color:var(--orange);font-size:11px;letter-spacing:4px;font-weight:700;text-transform:uppercase;margin-bottom:25px}
 h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500}
-.hero h1{
-  font-size:clamp(52px,6.5vw,88px);
-  line-height:1.04;
-  letter-spacing:-3px;
-  max-width:600px;
-}
+.hero h1{font-size:clamp(52px,6.5vw,88px);line-height:1.04;letter-spacing:-3px;max-width:600px}
 .hero h1 em{color:var(--olive2);font-weight:400}
-.hero-copy p{
-  color:var(--muted);
-  line-height:1.9;
-  max-width:430px;
-  font-size:14px;
-  margin:27px 0 32px;
-}
-.btn{
-  display:inline-flex;
-  align-items:center;
-  gap:18px;
-  padding:17px 25px;
-  background:var(--olive);
-  color:white;
-  font-size:11px;
-  letter-spacing:1.5px;
-  text-transform:uppercase;
-  transition:.3s;
-}
+.hero-copy p{color:var(--muted);line-height:1.9;max-width:430px;font-size:14px;margin:27px 0 32px}
+.btn{display:inline-flex;align-items:center;gap:18px;padding:17px 25px;background:var(--olive);color:white;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;transition:.3s}
 .btn:hover{background:var(--orange);transform:translateY(-4px)}
-.hero-photo{
-  height:535px;
-  position:relative;
-  animation:rise 1.2s ease both;
-}
-.hero-photo img{
-  height:100%;
-  border-radius:48% 48% 4px 4px;
-  box-shadow:20px 25px 0 #e4d9c5;
-}
-.photo-tag{
-  position:absolute;
-  bottom:30px;left:-35px;
-  background:var(--paper);
-  padding:19px 25px;
-  box-shadow:0 12px 35px #00000012;
-}
-.photo-tag small{
-  display:block;color:var(--orange);
-  font-size:9px;letter-spacing:2px;
-  text-transform:uppercase;margin-bottom:6px;
-}
+.hero-photo{height:535px;position:relative;animation:rise 1.2s ease both}
+.hero-photo img{height:100%;border-radius:48% 48% 4px 4px;box-shadow:20px 25px 0 #e4d9c5}
+.photo-tag{position:absolute;bottom:30px;left:-35px;background:var(--paper);padding:19px 25px;box-shadow:0 12px 35px #00000012}
+.photo-tag small{display:block;color:var(--orange);font-size:9px;letter-spacing:2px;text-transform:uppercase;margin-bottom:6px}
 .photo-tag strong{font-family:'Playfair Display';font-size:19px;font-weight:500}
-.marquee{
-  overflow:hidden;
-  background:var(--olive);
-  color:#f7f0df;
-  padding:19px 0;
-  white-space:nowrap;
-}
-.marquee-track{
-  display:inline-flex;
-  gap:45px;
-  animation:marquee 28s linear infinite;
-}
-.marquee span{
-  font-family:'Playfair Display';
-  font-size:20px;
-  font-style:italic;
-}
+.marquee{overflow:hidden;background:var(--olive);color:#f7f0df;padding:19px 0;white-space:nowrap}
+.marquee-track{display:inline-flex;gap:45px;animation:marquee 28s linear infinite}
+.marquee span{font-family:'Playfair Display';font-size:20px;font-style:italic}
 .marquee b{color:#dca17d;font-size:15px}
 .section{padding:110px 8%}
 .section-head{text-align:center;margin-bottom:55px}
 .section-head .eyebrow{margin-bottom:15px}
 .section-head h2{font-size:clamp(38px,5vw,58px)}
-.section-head p{
-  color:var(--muted);font-size:13px;
-  max-width:510px;margin:17px auto 0;line-height:1.8
-}
-.story{
-  display:grid;
-  grid-template-columns:1fr 1fr;
-  gap:80px;
-  align-items:center;
-}
+.section-head p{color:var(--muted);font-size:13px;max-width:510px;margin:17px auto 0;line-height:1.8}
+.story{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:center}
 .story-img{height:490px;position:relative}
 .story-img img{height:100%;border-radius:4px}
-.story-img:after{
-  content:"MALABAR • KERALA";
-  position:absolute;bottom:22px;left:22px;
-  color:white;font-size:10px;letter-spacing:3px;
-}
+.story-img:after{content:"THALASSERY • MALABAR";position:absolute;bottom:22px;left:22px;color:white;font-size:10px;letter-spacing:3px}
 .story-text h2{font-size:52px;line-height:1.1;margin-bottom:24px}
 .story-text p{font-size:14px;color:var(--muted);line-height:2;margin-bottom:18px}
 .signature{font-family:'Playfair Display';font-style:italic;color:var(--orange);font-size:23px;margin-top:25px}
 .menu-section{background:var(--paper)}
-.food-grid{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:25px;
-}
-.food-card{
-  background:var(--cream);
-  overflow:hidden;
-  transition:.4s;
-}
+.food-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:25px}
+.food-card{background:var(--cream);overflow:hidden;transition:.4s}
 .food-card:hover{transform:translateY(-9px);box-shadow:0 20px 40px #00000012}
 .food-card .food-img{height:245px;overflow:hidden}
-.food-card img{
-  height:100%;
-  transition:.7s;
-  object-position:center;
-}
+.food-card img{height:100%;transition:.7s}
 .food-card:hover img{transform:scale(1.07)}
 .food-info{padding:24px}
-.food-info .number{
-  color:var(--orange);font-size:10px;
-  letter-spacing:2px;margin-bottom:12px
-}
+.food-info .number{color:var(--orange);font-size:10px;letter-spacing:2px;margin-bottom:12px}
 .food-info h3{font-size:25px;margin-bottom:10px}
 .food-info p{font-size:12px;color:var(--muted);line-height:1.8}
-.food-note{
-  margin-top:35px;text-align:center;
-  color:var(--muted);font-size:11px;line-height:1.8
-}
-.experience{
-  display:grid;grid-template-columns:1fr 1fr;
-  background:var(--olive);color:white;
-}
+.food-note{margin-top:35px;text-align:center;color:var(--muted);font-size:11px;line-height:1.8}
+.experience{display:grid;grid-template-columns:1fr 1fr;background:var(--olive);color:white}
 .experience-image{min-height:480px}
 .experience-image img{height:100%;min-height:480px}
 .experience-copy{padding:85px 12%;align-self:center}
@@ -238,81 +82,51 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500}
 .experience-copy h2{font-size:clamp(38px,5vw,58px);line-height:1.1;margin-bottom:25px}
 .experience-copy p{color:#e0e3d8;font-size:13px;line-height:2;margin-bottom:28px}
 .experience-copy .btn{background:#f5eddf;color:var(--olive)}
-.gallery{
-  display:grid;grid-template-columns:1.2fr 1fr 1fr;
-  gap:15px;height:360px
-}
+.gallery{display:grid;grid-template-columns:1.2fr 1fr 1fr;gap:15px;height:360px}
 .gallery img{height:100%;border-radius:3px}
-.location{
-  background:#e8e1d2;
-  text-align:center;
-}
+.location{background:#e8e1d2;text-align:center}
 .location h2{font-size:55px;margin-bottom:20px}
 .location p{font-size:13px;color:var(--muted);line-height:2}
 .location .btn{margin-top:30px}
-footer{
-  background:#27392c;color:#f7f0e3;
-  padding:65px 8% 25px;
-}
-.footer-top{
-  display:flex;justify-content:space-between;
-  gap:40px;flex-wrap:wrap;padding-bottom:45px
-}
+footer{background:#27392c;color:#f7f0e3;padding:65px 8% 25px}
+.footer-top{display:flex;justify-content:space-between;gap:40px;flex-wrap:wrap;padding-bottom:45px}
 .footer-brand h2{font-size:37px;margin-bottom:12px}
 .footer-brand p{color:#c6cbbb;font-size:12px;line-height:1.9}
-.footer-col h3{
-  font-family:'DM Sans';font-size:10px;
-  letter-spacing:2px;text-transform:uppercase;
-  margin-bottom:18px;color:#dca17d
-}
-.footer-col a,.footer-col p{
-  display:block;font-size:12px;color:#d9dfd2;
-  margin:12px 0
-}
-.footer-bottom{
-  border-top:1px solid #ffffff24;padding-top:22px;
-  display:flex;justify-content:space-between;
-  gap:15px;flex-wrap:wrap;color:#aeb9a8;font-size:10px
-}
+.footer-col h3{font-family:'DM Sans';font-size:10px;letter-spacing:2px;text-transform:uppercase;margin-bottom:18px;color:#dca17d}
+.footer-col a,.footer-col p{display:block;font-size:12px;color:#d9dfd2;margin:12px 0}
+.footer-bottom{border-top:1px solid #ffffff24;padding-top:22px;display:flex;justify-content:space-between;gap:15px;flex-wrap:wrap;color:#aeb9a8;font-size:10px}
 .reveal{opacity:0;transform:translateY(35px);transition:all .8s ease}
 .reveal.visible{opacity:1;transform:translateY(0)}
 @keyframes rise{from{opacity:0;transform:translateY(35px)}to{opacity:1;transform:translateY(0)}}
 @keyframes marquee{to{transform:translateX(-50%)}}
 @media(max-width:850px){
-  nav{height:76px;padding:0 5%}
-  .logo{width:58px;height:58px}
-  .menu-btn{display:block}
-  .navlinks{
-    display:none;position:absolute;top:76px;left:0;width:100%;
-    background:var(--paper);padding:25px;
-    flex-direction:column;gap:25px;
-    border-top:1px solid #eee
-  }
-  .navlinks.open{display:flex}
-  .hero{grid-template-columns:1fr;padding:65px 7%;gap:45px}
-  .hero-photo{height:420px;margin:0 12px}
-  .photo-tag{left:-12px}
-  .story{grid-template-columns:1fr;gap:40px}
-  .story-img{height:360px}
-  .food-grid{grid-template-columns:1fr 1fr}
-  .experience{grid-template-columns:1fr}
-  .experience-image,.experience-image img{min-height:330px;height:330px}
-  .experience-copy{padding:65px 8%}
+nav{height:76px;padding:0 5%}.logo{width:58px;height:58px}.menu-btn{display:block}
+.navlinks{display:none;position:absolute;top:76px;left:0;width:100%;background:var(--paper);padding:25px;flex-direction:column;gap:25px;border-top:1px solid #eee}
+.navlinks.open{display:flex}
+.hero{grid-template-columns:1fr;padding:65px 7%;gap:45px}
+.hero-photo{height:420px;margin:0 12px}
+.photo-tag{left:-12px}
+.story{grid-template-columns:1fr;gap:40px}
+.story-img{height:360px}
+.food-grid{grid-template-columns:1fr 1fr}
+.experience{grid-template-columns:1fr}
+.experience-image,.experience-image img{min-height:330px;height:330px}
+.experience-copy{padding:65px 8%}
 }
 @media(max-width:560px){
-  .topline{font-size:8px;letter-spacing:2px}
-  .hero{padding-top:55px}
-  .hero h1{font-size:57px}
-  .hero-photo{height:350px}
-  .section{padding:75px 7%}
-  .story-text h2{font-size:42px}
-  .food-grid{grid-template-columns:1fr}
-  .food-card .food-img{height:250px}
-  .gallery{height:auto;grid-template-columns:1fr 1fr}
-  .gallery img{height:170px}
-  .gallery img:first-child{grid-column:span 2;height:220px}
-  .location h2{font-size:43px}
-  .footer-top{flex-direction:column}
+.topline{font-size:8px;letter-spacing:2px}
+.hero{padding-top:55px}
+.hero h1{font-size:57px}
+.hero-photo{height:350px}
+.section{padding:75px 7%}
+.story-text h2{font-size:42px}
+.food-grid{grid-template-columns:1fr}
+.food-card .food-img{height:250px}
+.gallery{height:auto;grid-template-columns:1fr 1fr}
+.gallery img{height:170px}
+.gallery img:first-child{grid-column:span 2;height:220px}
+.location h2{font-size:43px}
+.footer-top{flex-direction:column}
 }
 </style>
 </head>
@@ -341,12 +155,11 @@ footer{
       </svg>
     </div>
   </a>
-
   <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
   <div class="navlinks" id="navlinks">
     <a href="#home">Home</a>
     <a href="#story">Our Story</a>
-    <a href="#menu">Flavours</a>
+    <a href="#menu">Kadikal</a>
     <a href="#gallery">Gallery</a>
     <a href="#contact" class="nav-cta">Visit Us ↗</a>
   </div>
@@ -355,37 +168,37 @@ footer{
 <main>
 <section class="hero" id="home">
   <div class="hero-copy">
-    <div class="eyebrow">The soul of Malabar</div>
-    <h1>Where every<br>flavour tells a<br><em>story.</em></h1>
-    <p>From the timeless kitchens of Malabar to your table. Discover comforting flavours, beautiful moments and the warmth of a true café experience.</p>
-    <a href="#menu" class="btn">Discover our flavours <span>↗</span></a>
+    <div class="eyebrow">The soul of Thalassery</div>
+    <h1>Little bites.<br>Big Malabar<br><em>memories.</em></h1>
+    <p>Discover the much-loved kadikal of Thalassery. Traditional recipes, familiar flavours and the simple joy of a perfect tea-time snack.</p>
+    <a href="#menu" class="btn">Explore our kadikal <span>↗</span></a>
   </div>
   <div class="hero-photo">
-    <img src="https://s7ap1.scene7.com/is/image/itcportalprod/Thalassery%20Chicken%20Biryani%20-%20Web%20Banner%20Image" alt="Thalassery food">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Unnakkaya.JPG" alt="Traditional golden Unnakkaya Malabar snack" fetchpriority="high">
     <div class="photo-tag">
-      <small>A taste of home</small>
-      <strong>Made with soul.</strong>
+      <small>A Malabar favourite</small>
+      <strong>Made with tradition.</strong>
     </div>
   </div>
 </section>
 
 <div class="marquee">
   <div class="marquee-track">
-    <span>Malabar flavours</span><b>✳</b><span>Good food, good moments</span><b>✳</b><span>Thalassery traditions</span><b>✳</b><span>Made with love</span><b>✳</b>
-    <span>Malabar flavours</span><b>✳</b><span>Good food, good moments</span><b>✳</b><span>Thalassery traditions</span><b>✳</b><span>Made with love</span><b>✳</b>
+    <span>Thalassery kadikal</span><b>✳</b><span>Malabar tea-time treats</span><b>✳</b><span>Traditional recipes</span><b>✳</b><span>Made with love</span><b>✳</b>
+    <span>Thalassery kadikal</span><b>✳</b><span>Malabar tea-time treats</span><b>✳</b><span>Traditional recipes</span><b>✳</b><span>Made with love</span><b>✳</b>
   </div>
 </div>
 
 <section class="section story" id="story">
   <div class="story-img reveal">
-    <img src="https://kannurairport.aero/kial/public/uploads/destination_img/qmy2Q5bnCMxxtfuOaP6DvlviEATdZW.jpg" alt="Traditional Malabar food">
+    <img src="https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/1726257736179-A9HDZRCPREV6P824TJT9/IMG_9785.jpg" alt="Traditional Malabar mutta surka snacks" loading="lazy">
   </div>
   <div class="story-text reveal">
-    <div class="eyebrow">A place with a flavour</div>
-    <h2>Inspired by<br>the coast.<br>Made for you.</h2>
-    <p>Malabar is more than a place. It is a collection of flavours, traditions and memories. From fragrant biryani to beloved local delicacies, every dish carries a little piece of this beautiful region.</p>
-    <p>At Le Noir Café, we celebrate the spirit of good food and the joy of sharing it.</p>
-    <div class="signature">The Le Noir experience</div>
+    <div class="eyebrow">A taste of our roots</div>
+    <h2>Small bites.<br>Rich heritage.<br>True Malabar.</h2>
+    <p>Thalassery has a special place in Malabar's food culture. Its snack traditions bring together local ingredients, family recipes and generations of flavour.</p>
+    <p>From soft and sweet Unnakkaya to savoury pathiris and crispy tea-time favourites, every kadikal has a story to tell.</p>
+    <div class="signature">The Le Noir Café experience</div>
   </div>
 </section>
 
@@ -393,89 +206,87 @@ footer{
   <div class="section-head reveal">
     <div class="eyebrow">A taste worth remembering</div>
     <h2>Thalassery Kadikal</h2>
-    <p>Traditional Malabar snacks, sweet favourites and local tea-time delicacies.</p>
+    <p>Traditional snacks inspired by the kitchens and tea shops of North Malabar.</p>
   </div>
 
   <div class="food-grid">
-
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Unnakkaya.JPG" alt="Golden homemade Thalassery Unnakaya">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Unnakkaya.JPG" alt="Unnakkaya" loading="lazy">
       </div>
       <div class="food-info">
         <div class="number">01 / MALABAR CLASSIC</div>
-        <h3>Unnakaya</h3>
-        <p>Golden-fried ripe banana rolls with a deliciously sweet coconut filling.</p>
+        <h3>Unnakkaya</h3>
+        <p>Ripe banana shaped around a sweet coconut filling, traditionally fried until golden.</p>
       </div>
     </article>
 
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/1726257736179-A9HDZRCPREV6P824TJT9/IMG_9785.jpg" alt="Traditional Malabar Mutta Surka">
+        <img src="https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/1726257736179-A9HDZRCPREV6P824TJT9/IMG_9785.jpg" alt="Malabari mutta surka" loading="lazy">
       </div>
       <div class="food-info">
-        <div class="number">02 / LOCAL FAVOURITE</div>
+        <div class="number">02 / TEA-TIME FAVOURITE</div>
         <h3>Mutta Surka</h3>
-        <p>A soft, traditional egg-based Malabar snack, loved with a cup of tea.</p>
+        <p>A much-loved North Malabar snack with a soft centre and a lightly crisp outside.</p>
       </div>
     </article>
 
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://i0.wp.com/www.sujiscooking.com/wp-content/uploads/2014/12/pazham-nirachathu-recipe.1024x1024.jpg?fit=1024%2C682&ssl=1" alt="Golden Pazham Nirachathu stuffed banana">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Pazham_nirachath.jpg" alt="Pazham nirachath" loading="lazy">
       </div>
       <div class="food-info">
-        <div class="number">03 / SWEET SPECIAL</div>
-        <h3>Pazham Nirachathu</h3>
-        <p>Ripe banana filled with a sweet coconut mixture and fried until golden.</p>
+        <div class="number">03 / SWEET SPECIALITY</div>
+        <h3>Pazham Nirachath</h3>
+        <p>Ripe banana filled with a sweet mixture, prepared in a traditional Malabar style.</p>
       </div>
     </article>
 
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://www.curryd.com/images/main_images/chatti-pathiri-1707749819.jpg" alt="Layered Malabar Chatti Pathiri">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/c3/KallummakkayaNirachath.jpg/1280px-KallummakkayaNirachath.jpg" alt="Kallummakkaya nirachath" loading="lazy">
       </div>
       <div class="food-info">
-        <div class="number">04 / TRADITIONAL DELIGHT</div>
-        <h3>Chatti Pathiri</h3>
-        <p>A beautiful layered Malabar speciality with a rich, flavourful filling.</p>
+        <div class="number">04 / COASTAL SPECIALITY</div>
+        <h3>Kallummakkaya Nirachath</h3>
+        <p>North Malabar's famous stuffed mussel delicacy, full of coastal flavour.</p>
       </div>
     </article>
 
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://img.onmanorama.com/content/dam/mm/en/archive/food/features/images/2026/3/4/mussels-3.jpg" alt="Spicy Malabar Kallummakkaya mussels">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/42/Ottada.jpg/1280px-Ottada.jpg" alt="Traditional Kerala Ottada snack" loading="lazy">
       </div>
       <div class="food-info">
-        <div class="number">05 / MALABAR SPECIAL</div>
-        <h3>Kallummakkaya Porichath</h3>
-        <p>Malabar-style mussels coated in aromatic spices and cooked to a delicious finish.</p>
+        <div class="number">05 / TRADITIONAL TREAT</div>
+        <h3>Ottada</h3>
+        <p>A traditional Kerala snack made with a simple mixture and cooked to a soft finish.</p>
       </div>
     </article>
 
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://img.onmanorama.com/content/dam/mm/en/food/features/images/2024/10/10/muttamala.jpg.transform/schema-4x3/image.jpg" alt="Golden strands of traditional Malabar Mutta Mala">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/46/Kumbilappam_a_snack_food_in_kerala_india%2C_by_Jadan.jpg/1280px-Kumbilappam_a_snack_food_in_kerala_india%2C_by_Jadan.jpg" alt="Kumbilappam traditional Kerala snack" loading="lazy">
       </div>
       <div class="food-info">
-        <div class="number">06 / SWEET TRADITION</div>
-        <h3>Mutta Mala</h3>
-        <p>Delicate golden egg threads, a special sweet from the Malabar kitchen.</p>
+        <div class="number">06 / LEAF-WRAPPED DELIGHT</div>
+        <h3>Kumbilappam</h3>
+        <p>A fragrant traditional snack wrapped in leaves and gently steamed.</p>
       </div>
     </article>
-
   </div>
-  <p class="food-note">Photographs are illustrative references from external publishers. Replace them with your own or properly licensed café photographs before commercial use.</p>
+  <p class="food-note">These photographs are visual references for traditional snacks. Please confirm the actual items available at Le Noir Café before presenting this as a live menu.</p>
 </section>
 
 <section class="experience">
   <div class="experience-image">
-    <img src="https://itsmy.wedding/images/blog/muslim-wedding-kerala/muslim-wedding-catering-kerala-hero.webp" alt="Traditional Malabar feast">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Pazham_nirachath.jpg/1280px-Pazham_nirachath.jpg" alt="Traditional Malabar pazham nirachath snack" loading="lazy">
   </div>
   <div class="experience-copy reveal">
-    <div class="eyebrow">More than a meal</div>
-    <h2>Come for the taste.<br>Stay for the feeling.</h2>
-    <p>Good food brings people together. Make room for conversations, little celebrations and moments worth remembering.</p>
+    <div class="eyebrow">More than a snack</div>
+    <h2>Tea-time tastes<br>like home.</h2>
+    <p>Some flavours take us straight back to familiar kitchens, evening conversations and the comfort of a freshly made kadikal.</p>
     <a href="#contact" class="btn">Find Le Noir Café ↗</a>
   </div>
 </section>
@@ -483,13 +294,13 @@ footer{
 <section class="section" id="gallery">
   <div class="section-head reveal">
     <div class="eyebrow">A visual taste</div>
-    <h2>Thalassery Snack Stories</h2>
-    <p>A glimpse of the traditional snacks that inspire us.</p>
+    <h2>The Kadikal Gallery</h2>
+    <p>A little collection of the traditional snacks that inspire us.</p>
   </div>
   <div class="gallery reveal">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Unnakkaya.JPG" alt="Unnakaya">
-    <img src="https://www.curryd.com/images/main_images/chatti-pathiri-1707749819.jpg" alt="Chatti Pathiri">
-    <img src="https://img.onmanorama.com/content/dam/mm/en/archive/food/features/images/2026/3/4/mussels-3.jpg" alt="Kallummakkaya">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Unnakkaya.JPG" alt="Unnakkaya Malabar snack" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/1726257736179-A9HDZRCPREV6P824TJT9/IMG_9785.jpg" alt="Mutta surka snack" loading="lazy">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/69/Pazham_nirachath.jpg" alt="Pazham nirachath snack" loading="lazy">
   </div>
 </section>
 
@@ -508,13 +319,13 @@ footer{
   <div class="footer-top">
     <div class="footer-brand">
       <h2>Le Noir Café.</h2>
-      <p>A little taste of Malabar.<br>Thalassery, Kerala, India.</p>
+      <p>Thalassery kadikal.<br>Thalassery, Kerala, India.</p>
     </div>
     <div class="footer-col">
       <h3>Explore</h3>
       <a href="#home">Home</a>
       <a href="#story">Our Story</a>
-      <a href="#menu">Flavours</a>
+      <a href="#menu">Kadikal</a>
       <a href="#gallery">Gallery</a>
     </div>
     <div class="footer-col">
@@ -557,4 +368,5 @@ const observer=new IntersectionObserver(entries=>{
 document.querySelectorAll('.reveal').forEach(el=>observer.observe(el));
 </script>
 </body>
-</html>
+                                                                                     </html>
+                                                                                     
