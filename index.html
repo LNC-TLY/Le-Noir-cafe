@@ -6,395 +6,217 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Le Noir Café | Thalassery</title>
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 
 <style>
 :root {
-  --black: #090806;
-  --gold: #c9a46a;
-  --cream: #f5eee3;
-  --muted: #b8aea0;
+  --black:#090806;
+  --gold:#c9a46a;
+  --cream:#f5eee3;
+  --muted:#b8aea0;
 }
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  background:var(--black);
+  color:var(--cream);
+  font-family:'DM Sans',sans-serif;
+  overflow-x:hidden;
 }
-
-html {
-  scroll-behavior: smooth;
+nav{
+  position:fixed;
+  top:0;width:100%;z-index:100;
+  display:flex;justify-content:space-between;
+  align-items:center;padding:22px 5%;
+  background:rgba(9,8,6,.94);
+  border-bottom:1px solid rgba(201,164,106,.2);
+  backdrop-filter:blur(15px);
 }
-
-body {
-  background: var(--black);
-  color: var(--cream);
-  font-family: 'DM Sans', sans-serif;
-  overflow-x: hidden;
+.brand{
+  font-family:'Cormorant Garamond',serif;
+  font-size:29px;font-weight:700;
+  letter-spacing:4px;color:var(--gold);
 }
-
-nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  z-index: 100;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 23px 5%;
-  background: rgba(9,8,6,.94);
-  border-bottom: 1px solid rgba(201,164,106,.2);
-  backdrop-filter: blur(15px);
+.nav-links{display:flex;gap:30px}
+.nav-links a{
+  color:white;text-decoration:none;
+  font-size:12px;letter-spacing:1.5px;
+  transition:.3s;
 }
-
-.brand {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 29px;
-  font-weight: 700;
-  letter-spacing: 4px;
-  color: var(--gold);
+.nav-links a:hover{color:var(--gold)}
+.hero{
+  min-height:100vh;padding:145px 7% 90px;
+  display:flex;flex-direction:column;
+  align-items:center;justify-content:center;
+  text-align:center;position:relative;overflow:hidden;
+  background:radial-gradient(ellipse at center,#261b10,#100d09 55%,#090806 80%);
 }
-
-.nav-links {
-  display: flex;
-  gap: 34px;
+.hero::before,.hero::after{
+  content:"";position:absolute;border-radius:50%;
+  pointer-events:none;
 }
-
-.nav-links a {
-  color: white;
-  text-decoration: none;
-  font-size: 13px;
-  letter-spacing: 1.5px;
-  transition: .3s;
+.hero::before{
+  width:570px;height:570px;
+  border:1px solid rgba(201,164,106,.19);
+  animation:rotate 35s linear infinite;
 }
-
-.nav-links a:hover {
-  color: var(--gold);
+.hero::after{
+  width:430px;height:430px;
+  border:1px dashed rgba(201,164,106,.2);
+  animation:rotate 25s linear infinite reverse;
 }
+@keyframes rotate{to{transform:rotate(360deg)}}
 
-.hero {
-  min-height: 100vh;
-  padding: 145px 7% 90px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  position: relative;
-  overflow: hidden;
-  background:
-    radial-gradient(ellipse at center, #261b10 0%, #100d09 48%, #090806 78%);
+.logo-wrap{
+  width:190px;height:190px;
+  border-radius:50%;overflow:hidden;
+  border:2px solid var(--gold);
+  padding:4px;background:#000;
+  position:relative;z-index:2;
+  margin-bottom:45px;
+  box-shadow:0 0 40px rgba(201,164,106,.22);
+  animation:float 4s ease-in-out infinite;
 }
-
-.hero::before {
-  content: "";
-  position: absolute;
-  width: 570px;
-  height: 570px;
-  border: 1px solid rgba(201,164,106,.19);
-  border-radius: 50%;
-  animation: rotate 35s linear infinite;
+.logo-wrap img{
+  width:100%;height:100%;
+  object-fit:cover;border-radius:50%;
+  display:block;
 }
-
-.hero::after {
-  content: "";
-  position: absolute;
-  width: 430px;
-  height: 430px;
-  border: 1px dashed rgba(201,164,106,.16);
-  border-radius: 50%;
-  animation: rotate 25s linear infinite reverse;
+@keyframes float{
+  0%,100%{transform:translateY(0)}
+  50%{transform:translateY(-10px)}
 }
-
-@keyframes rotate {
-  to { transform: rotate(360deg); }
+.eyebrow{
+  color:var(--gold);letter-spacing:6px;
+  font-size:13px;margin-bottom:30px;
+  position:relative;z-index:2;
 }
-
-.logo-wrap {
-  width: 190px;
-  height: 190px;
-  border-radius: 50%;
-  overflow: hidden;
-  border: 2px solid var(--gold);
-  padding: 5px;
-  background: #000;
-  position: relative;
-  z-index: 2;
-  margin-bottom: 45px;
-  box-shadow: 0 0 35px rgba(201,164,106,.2);
-  animation: float 4s ease-in-out infinite;
+.hero h1{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(55px,9vw,115px);
+  line-height:.95;max-width:1100px;
+  font-weight:600;position:relative;z-index:2;
 }
-
-.logo-wrap img {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  object-fit: cover;
-  object-position: center;
-  display: block;
+.hero h1 span{color:var(--gold)}
+.hero p{
+  color:var(--muted);max-width:780px;
+  line-height:2;margin:35px auto;
+  font-size:16px;position:relative;z-index:2;
 }
-
-@keyframes float {
-  0%,100% { transform: translateY(0); }
-  50% { transform: translateY(-10px); }
+.btn{
+  display:inline-block;padding:16px 35px;
+  border:1px solid var(--gold);
+  color:var(--gold);text-decoration:none;
+  letter-spacing:2px;font-size:12px;
+  transition:.35s;position:relative;z-index:2;
 }
-
-.eyebrow {
-  color: var(--gold);
-  letter-spacing: 6px;
-  font-size: 13px;
-  margin-bottom: 30px;
-  position: relative;
-  z-index: 2;
+.btn:hover{
+  background:var(--gold);color:#090806;
+  transform:translateY(-4px);
 }
-
-.hero h1 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(55px, 9vw, 115px);
-  line-height: .95;
-  max-width: 1100px;
-  font-weight: 600;
-  position: relative;
-  z-index: 2;
+.marquee{
+  overflow:hidden;white-space:nowrap;
+  border-top:1px solid rgba(201,164,106,.3);
+  border-bottom:1px solid rgba(201,164,106,.3);
+  padding:22px 0;color:var(--gold);
+  letter-spacing:5px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:24px;
 }
-
-.hero h1 span {
-  color: var(--gold);
+.marquee span{
+  display:inline-block;
+  animation:move 25s linear infinite;
 }
-
-.hero p {
-  color: var(--muted);
-  max-width: 780px;
-  line-height: 2;
-  margin: 35px auto;
-  font-size: 17px;
-  position: relative;
-  z-index: 2;
+@keyframes move{
+  from{transform:translateX(0)}
+  to{transform:translateX(-50%)}
 }
-
-.btn {
-  display: inline-block;
-  padding: 16px 35px;
-  border: 1px solid var(--gold);
-  color: var(--gold);
-  text-decoration: none;
-  letter-spacing: 2px;
-  font-size: 12px;
-  transition: .35s;
-  position: relative;
-  z-index: 2;
+section{padding:110px 8%}
+.section-label{
+  color:var(--gold);letter-spacing:5px;
+  font-size:12px;margin-bottom:20px;
 }
-
-.btn:hover {
-  background: var(--gold);
-  color: #090806;
-  transform: translateY(-4px);
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(42px,6vw,75px);
+  line-height:1;margin-bottom:30px;
 }
-
-.marquee {
-  overflow: hidden;
-  white-space: nowrap;
-  border-top: 1px solid rgba(201,164,106,.3);
-  border-bottom: 1px solid rgba(201,164,106,.3);
-  padding: 22px 0;
-  color: var(--gold);
-  letter-spacing: 5px;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 24px;
+.about{
+  text-align:center;max-width:1000px;margin:auto;
 }
-
-.marquee span {
-  display: inline-block;
-  animation: move 25s linear infinite;
+.about p{
+  color:var(--muted);font-size:16px;line-height:2.1;
 }
-
-@keyframes move {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+.experience{
+  background:#100e0a;text-align:center;
 }
-
-section {
-  padding: 110px 8%;
+.cards{
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:25px;margin-top:55px;
 }
-
-.section-label {
-  color: var(--gold);
-  letter-spacing: 5px;
-  font-size: 12px;
-  margin-bottom: 20px;
+.card{
+  border:1px solid rgba(201,164,106,.25);
+  padding:45px 25px;
+  background:linear-gradient(145deg,#1b160f,#0d0b08);
+  transition:.4s;
 }
-
-.section-title {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(42px, 6vw, 75px);
-  line-height: 1;
-  margin-bottom: 30px;
+.card:hover{
+  transform:translateY(-10px);
+  border-color:var(--gold);
+  box-shadow:0 15px 40px rgba(0,0,0,.35);
 }
-
-.about {
-  text-align: center;
-  max-width: 1000px;
-  margin: auto;
+.number{
+  color:var(--gold);
+  font-family:'Cormorant Garamond',serif;
+  font-size:42px;margin-bottom:20px;
 }
-
-.about p {
-  color: var(--muted);
-  font-size: 16px;
-  line-height: 2.1;
+.card h3{
+  font-family:'Cormorant Garamond',serif;
+  font-size:30px;margin-bottom:15px;
 }
-
-.experience {
-  background: #100e0a;
-  text-align: center;
+.card p{color:var(--muted);line-height:1.8;font-size:14px}
+.bulk{
+  text-align:center;
+  background:radial-gradient(ellipse,#251a10,#090806 70%);
 }
-
-.cards {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
-  margin-top: 55px;
+.bulk p{
+  max-width:700px;margin:0 auto 30px;
+  color:var(--muted);line-height:2;
 }
-
-.card {
-  border: 1px solid rgba(201,164,106,.25);
-  padding: 45px 25px;
-  background: linear-gradient(145deg, #1b160f, #0d0b08);
-  transition: .4s;
+.contact{text-align:center;background:#100e0a}
+.contact p{color:var(--muted);margin:15px 0 30px}
+.contact-links{
+  display:flex;justify-content:center;
+  flex-wrap:wrap;gap:15px;
 }
-
-.card:hover {
-  transform: translateY(-10px);
-  border-color: var(--gold);
-  box-shadow: 0 15px 40px rgba(0,0,0,.35);
+footer{
+  text-align:center;padding:35px 15px;
+  color:#8d8172;font-size:12px;
+  letter-spacing:2px;
+  border-top:1px solid rgba(201,164,106,.2);
 }
-
-.card .number {
-  color: var(--gold);
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 42px;
-  margin-bottom: 20px;
+.reveal{
+  opacity:0;transform:translateY(35px);
+  transition:opacity .8s ease,transform .8s ease;
 }
+.reveal.show{opacity:1;transform:translateY(0)}
 
-.card h3 {
-  font-family: 'Cormorant Garamond', serif;
-  font-size: 30px;
-  margin-bottom: 15px;
+@media(max-width:750px){
+  nav{padding:18px 4%}
+  .brand{font-size:19px;letter-spacing:2px}
+  .nav-links{gap:10px}
+  .nav-links a{font-size:8px;letter-spacing:.3px}
+  .hero{padding-top:130px}
+  .logo-wrap{width:155px;height:155px}
+  .eyebrow{letter-spacing:3px;font-size:10px}
+  .hero p{font-size:14px}
+  section{padding:80px 6%}
+  .cards{grid-template-columns:1fr}
 }
-
-.card p {
-  color: var(--muted);
-  line-height: 1.8;
-  font-size: 14px;
-}
-
-.bulk {
-  text-align: center;
-  background: radial-gradient(ellipse, #251a10, #090806 70%);
-}
-
-.bulk p {
-  max-width: 700px;
-  margin: 0 auto 30px;
-  color: var(--muted);
-  line-height: 2;
-}
-
-.contact {
-  text-align: center;
-  background: #100e0a;
-}
-
-.contact p {
-  color: var(--muted);
-  margin: 15px 0 30px;
-}
-
-.contact-links {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 15px;
-}
-
-footer {
-  text-align: center;
-  padding: 35px 15px;
-  color: #8d8172;
-  font-size: 12px;
-  letter-spacing: 2px;
-  border-top: 1px solid rgba(201,164,106,.2);
-}
-
-.reveal {
-  opacity: 0;
-  transform: translateY(35px);
-  transition: opacity .8s ease, transform .8s ease;
-}
-
-.reveal.show {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-@media(max-width: 750px) {
-  nav {
-    padding: 18px 5%;
-  }
-
-  .brand {
-    font-size: 21px;
-    letter-spacing: 2px;
-  }
-
-  .nav-links {
-    gap: 12px;
-  }
-
-  .nav-links a {
-    font-size: 9px;
-    letter-spacing: .5px;
-  }
-
-  .hero {
-    padding-top: 130px;
-  }
-
-  .logo-wrap {
-    width: 155px;
-    height: 155px;
-  }
-
-  .eyebrow {
-    letter-spacing: 3px;
-    font-size: 10px;
-  }
-
-  .hero p {
-    font-size: 14px;
-  }
-
-  section {
-    padding: 80px 6%;
-  }
-
-  .cards {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media(max-width: 390px) {
-  .nav-links {
-    gap: 8px;
-  }
-
-  .nav-links a {
-    font-size: 8px;
-  }
-
-  .brand {
-    font-size: 18px;
-  }
+@media(max-width:390px){
+  .brand{font-size:16px}
+  .nav-links{gap:7px}
+  .nav-links a{font-size:7px}
 }
 </style>
 </head>
@@ -415,7 +237,10 @@ footer {
 <header class="hero" id="home">
 
   <div class="logo-wrap">
-    <img src="logo.jpg" alt="Le Noir Café Logo">
+    <img
+      alt="Le Noir Café Logo"
+      src="data:image/jpeg;base64,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"
+    >
   </div>
 
   <div class="eyebrow">A SIGNATURE EXPERIENCE · THALASSERY</div>
@@ -433,7 +258,6 @@ footer {
   </p>
 
   <a href="#contact" class="btn">DISCOVER LE NOIR</a>
-
 </header>
 
 <div class="marquee">
@@ -468,28 +292,19 @@ footer {
     <div class="card reveal">
       <div class="number">01</div>
       <h3>Signature Flavours</h3>
-      <p>
-        Enjoy thoughtfully prepared food and flavours
-        made to leave a lasting impression.
-      </p>
+      <p>Enjoy thoughtfully prepared food and flavours made to leave a lasting impression.</p>
     </div>
 
     <div class="card reveal">
       <div class="number">02</div>
       <h3>Beautiful Moments</h3>
-      <p>
-        A place to connect, relax and create
-        memorable moments with people you love.
-      </p>
+      <p>A place to connect, relax and create memorable moments with people you love.</p>
     </div>
 
     <div class="card reveal">
       <div class="number">03</div>
       <h3>Special Orders</h3>
-      <p>
-        Planning a gathering or celebration?
-        Contact us for bulk order enquiries.
-      </p>
+      <p>Planning a gathering or celebration? Contact us for bulk order enquiries.</p>
     </div>
   </div>
 </section>
@@ -513,15 +328,10 @@ footer {
     <p>Le Noir Café · Thalassery, Kerala</p>
 
     <div class="contact-links">
-      <a class="btn"
-         href="https://www.instagram.com/le_noircafe/"
-         target="_blank">
+      <a class="btn" href="https://www.instagram.com/le_noircafe/" target="_blank">
         INSTAGRAM
       </a>
-
-      <a class="btn"
-         href="https://wa.me/91XXXXXXXXXX"
-         target="_blank">
+      <a class="btn" href="https://wa.me/91XXXXXXXXXX" target="_blank">
         WHATSAPP
       </a>
     </div>
@@ -544,7 +354,7 @@ const observer = new IntersectionObserver(entries => {
       entry.target.classList.add("show");
     }
   });
-}, { threshold: 0.15 });
+}, {threshold:0.15});
 
 document.querySelectorAll(".reveal").forEach(element => {
   observer.observe(element);
