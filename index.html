@@ -5,278 +5,423 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Le Noir Café | Thalassery</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <style>
 :root{
-  --black:#080705;
-  --gold:#d9b16f;
-  --cream:#f5eee3;
-  --muted:#b8ad9d;
+ --black:#080705;
+ --dark:#100d08;
+ --gold:#d8b16f;
+ --gold2:#f4d7a0;
+ --cream:#f7efe3;
+ --muted:#b8ad9d;
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth}
 body{
-  background:var(--black);
-  color:var(--cream);
-  font-family:'DM Sans',sans-serif;
-  overflow-x:hidden;
+ background:var(--black);
+ color:var(--cream);
+ font-family:'DM Sans',sans-serif;
+ overflow-x:hidden;
 }
+a{text-decoration:none}
+
+/* NAVIGATION */
 nav{
-  position:fixed;
-  top:0;left:0;width:100%;
-  z-index:100;
-  display:flex;
-  justify-content:space-between;
-  align-items:center;
-  padding:20px 5%;
-  background:rgba(8,7,5,.94);
-  border-bottom:1px solid rgba(217,177,111,.3);
-  backdrop-filter:blur(15px);
+ position:fixed;
+ top:0;left:0;width:100%;
+ z-index:1000;
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ padding:18px 5%;
+ background:rgba(8,7,5,.88);
+ border-bottom:1px solid #d8b16f35;
+ backdrop-filter:blur(18px);
 }
 .brand{
-  font-family:'Cormorant Garamond',serif;
-  color:var(--gold);
-  font-size:29px;
-  font-weight:700;
-  letter-spacing:4px;
+ font:700 30px 'Cormorant Garamond',serif;
+ color:var(--gold);
+ letter-spacing:4px;
 }
-.nav-links{display:flex;gap:28px}
+.nav-links{display:flex;gap:27px}
 .nav-links a{
-  text-decoration:none;
-  color:#eee;
-  font-size:12px;
-  letter-spacing:1.5px;
-  transition:.3s;
+ color:#eee;
+ font-size:11px;
+ letter-spacing:1.5px;
+ position:relative;
+}
+.nav-links a:after{
+ content:"";
+ position:absolute;
+ width:0;height:1px;
+ bottom:-7px;left:0;
+ background:var(--gold);
+ transition:.3s;
 }
 .nav-links a:hover{color:var(--gold)}
+.nav-links a:hover:after{width:100%}
 
+/* MOVING BACKGROUND */
 .hero{
-  min-height:100vh;
-  padding:140px 6% 85px;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  position:relative;
-  overflow:hidden;
-  background:radial-gradient(ellipse at center,#2b1c0d,#100c07 52%,#080705 85%);
+ min-height:100vh;
+ padding:145px 6% 90px;
+ display:flex;
+ flex-direction:column;
+ align-items:center;
+ justify-content:center;
+ text-align:center;
+ position:relative;
+ overflow:hidden;
+ background:
+ radial-gradient(ellipse at 50% 45%,#35210f 0%,#171007 40%,#080705 78%);
+}
+.hero:before,.hero:after{
+ content:"";
+ position:absolute;
+ width:500px;height:500px;
+ border-radius:50%;
+ background:#d8a85a12;
+ filter:blur(90px);
+ animation:lightMove 12s ease-in-out infinite alternate;
+}
+.hero:before{top:-180px;left:-170px}
+.hero:after{bottom:-200px;right:-150px;animation-delay:-5s}
+@keyframes lightMove{
+ from{transform:translate(0,0) scale(.8)}
+ to{transform:translate(160px,100px) scale(1.3)}
 }
 .orbit{
-  position:absolute;
-  width:620px;height:620px;
-  border:1px solid rgba(217,177,111,.2);
-  border-radius:50%;
-  animation:rotate 50s linear infinite;
+ position:absolute;
+ width:min(680px,95vw);
+ aspect-ratio:1;
+ border:1px solid #d8b16f25;
+ border-radius:50%;
+ animation:orbit 65s linear infinite;
 }
-.orbit:after{
-  content:"";
-  position:absolute;
-  inset:48px;
-  border:1px dashed rgba(217,177,111,.2);
-  border-radius:50%;
+.orbit:before{
+ content:"";
+ position:absolute;
+ inset:45px;
+ border:1px dashed #d8b16f27;
+ border-radius:50%;
 }
-@keyframes rotate{to{transform:rotate(360deg)}}
+@keyframes orbit{to{transform:rotate(360deg)}}
 
-/* CUSTOM LE NOIR LOGO */
+/* FLOATING PARTICLES */
+.particles{
+ position:absolute;inset:0;
+ pointer-events:none;
+ overflow:hidden;
+}
+.particle{
+ position:absolute;
+ width:4px;height:4px;
+ border-radius:50%;
+ background:var(--gold);
+ box-shadow:0 0 12px var(--gold);
+ animation:rise linear infinite;
+ opacity:0;
+}
+@keyframes rise{
+ 0%{transform:translateY(100px) scale(.5);opacity:0}
+ 20%{opacity:.8}
+ 80%{opacity:.6}
+ 100%{transform:translateY(-85vh) scale(1.3);opacity:0}
+}
+
+/* LOGO - VECTOR ART */
 .logo{
-  width:195px;
-  height:195px;
-  position:relative;
-  z-index:2;
-  margin-bottom:38px;
-  border-radius:50%;
-  background:#000;
-  border:2px solid var(--gold);
-  box-shadow:0 0 35px rgba(217,177,111,.3);
-  animation:float 4s ease-in-out infinite;
+ width:245px;
+ max-width:70vw;
+ aspect-ratio:1;
+ position:relative;
+ z-index:3;
+ margin-bottom:38px;
+ filter:drop-shadow(0 0 28px #d8b16f40);
+ animation:logoFloat 5s ease-in-out infinite;
 }
-.logo svg{width:100%;height:100%;display:block}
-@keyframes float{
-  0%,100%{transform:translateY(0)}
-  50%{transform:translateY(-9px)}
+.logo svg{width:100%;height:100%}
+@keyframes logoFloat{
+ 0%,100%{transform:translateY(0) rotate(0)}
+ 50%{transform:translateY(-12px) rotate(1deg)}
 }
-
 .eyebrow{
-  position:relative;
-  z-index:2;
-  color:var(--gold);
-  letter-spacing:6px;
-  font-size:12px;
-  margin-bottom:25px;
+ position:relative;z-index:3;
+ color:var(--gold);
+ font-size:12px;
+ letter-spacing:7px;
+ margin-bottom:25px;
 }
 .hero h1{
-  position:relative;
-  z-index:2;
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(52px,8vw,108px);
-  line-height:.95;
-  font-weight:600;
-  max-width:1150px;
+ position:relative;z-index:3;
+ font:600 clamp(48px,8vw,105px)/.95 'Cormorant Garamond',serif;
+ max-width:1200px;
 }
 .hero h1 span{color:var(--gold)}
 .hero p{
-  position:relative;
-  z-index:2;
-  max-width:780px;
-  color:var(--muted);
-  line-height:2;
-  margin:30px 0;
-  font-size:16px;
+ position:relative;z-index:3;
+ max-width:780px;
+ color:var(--muted);
+ line-height:2;
+ margin:30px 0;
+ font-size:15px;
 }
 .btn{
-  position:relative;
-  z-index:2;
-  display:inline-block;
-  padding:16px 34px;
-  border:1px solid var(--gold);
-  color:var(--gold);
-  text-decoration:none;
-  font-size:12px;
-  letter-spacing:2px;
-  transition:.35s;
+ position:relative;z-index:3;
+ display:inline-block;
+ padding:16px 34px;
+ border:1px solid var(--gold);
+ color:var(--gold);
+ font-size:11px;
+ letter-spacing:2px;
+ transition:.35s;
+ overflow:hidden;
 }
 .btn:hover{
-  background:var(--gold);
-  color:#080705;
-  transform:translateY(-4px);
+ background:var(--gold);
+ color:#080705;
+ box-shadow:0 0 25px #d8b16f50;
+ transform:translateY(-5px);
 }
 
+/* SCROLL INDICATOR */
+.scroll{
+ position:absolute;
+ bottom:25px;
+ color:var(--gold);
+ font-size:10px;
+ letter-spacing:4px;
+ animation:scrollPulse 2s infinite;
+}
+@keyframes scrollPulse{
+ 0%,100%{transform:translateY(0);opacity:.5}
+ 50%{transform:translateY(9px);opacity:1}
+}
+
+/* MARQUEE */
 .marquee{
-  overflow:hidden;
-  white-space:nowrap;
-  padding:19px 0;
-  border-top:1px solid #75572e;
-  border-bottom:1px solid #75572e;
-  color:var(--gold);
-  font-family:'Cormorant Garamond',serif;
-  font-size:22px;
-  letter-spacing:4px;
+ overflow:hidden;
+ white-space:nowrap;
+ padding:20px 0;
+ border-block:1px solid #d8b16f55;
+ color:var(--gold);
+ font:23px 'Cormorant Garamond',serif;
+ letter-spacing:4px;
+ background:#0c0905;
 }
 .marquee span{
-  display:inline-block;
-  animation:slide 25s linear infinite;
+ display:inline-block;
+ animation:marquee 30s linear infinite;
 }
-@keyframes slide{
-  from{transform:translateX(0)}
-  to{transform:translateX(-50%)}
+@keyframes marquee{
+ from{transform:translateX(0)}
+ to{transform:translateX(-50%)}
 }
 
+/* GENERAL SECTIONS */
 section{padding:100px 8%}
 .label{
-  color:var(--gold);
-  letter-spacing:5px;
-  font-size:12px;
-  margin-bottom:20px;
+ color:var(--gold);
+ font-size:11px;
+ letter-spacing:5px;
+ margin-bottom:20px;
 }
 .heading{
-  font-family:'Cormorant Garamond',serif;
-  font-size:clamp(42px,6vw,72px);
-  line-height:1;
-  margin-bottom:25px;
+ font:600 clamp(42px,6vw,75px)/1 'Cormorant Garamond',serif;
+ margin-bottom:25px;
 }
 .about{
-  text-align:center;
-  max-width:950px;
-  margin:auto;
+ max-width:950px;
+ text-align:center;
+ margin:auto;
 }
-.about p,.bulk p{
-  color:var(--muted);
-  line-height:2;
-  font-size:16px;
-}
-.experience{
-  text-align:center;
-  background:#100d08;
-}
-.cards{
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:24px;
-  margin-top:50px;
-}
-.card{
-  padding:42px 25px;
-  border:1px solid rgba(217,177,111,.3);
-  background:linear-gradient(145deg,#21170c,#0b0906);
-  transition:.4s;
-}
-.card:hover{
-  transform:translateY(-10px);
-  border-color:var(--gold);
-  box-shadow:0 15px 35px #0008;
-}
-.number{
-  font-family:'Cormorant Garamond',serif;
-  font-size:42px;
-  color:var(--gold);
-  margin-bottom:18px;
-}
-.card h3{
-  font-family:'Cormorant Garamond',serif;
-  font-size:29px;
-  margin-bottom:15px;
-}
-.card p{
-  color:var(--muted);
-  font-size:14px;
-  line-height:1.8;
-}
-.bulk{
-  text-align:center;
-  background:radial-gradient(ellipse,#24180c,#080705 75%);
-}
-.bulk p{
-  max-width:700px;
-  margin:0 auto 30px;
-}
-.contact{
-  text-align:center;
-  background:#100d08;
-}
-.contact p{color:var(--muted);margin:15px 0 30px}
-.contact-links{
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-footer{
-  text-align:center;
-  padding:35px 15px;
-  color:#938574;
-  font-size:12px;
-  letter-spacing:2px;
-  border-top:1px solid rgba(217,177,111,.25);
-}
-.reveal{
-  opacity:0;
-  transform:translateY(30px);
-  transition:.8s;
-}
-.reveal.show{
-  opacity:1;
-  transform:translateY(0);
+.about p,.section-intro{
+ color:var(--muted);
+ line-height:2;
+ font-size:15px;
 }
 
-@media(max-width:750px){
-  nav{padding:17px 4%}
-  .brand{font-size:19px;letter-spacing:2px}
-  .nav-links{gap:10px}
-  .nav-links a{font-size:8px;letter-spacing:.3px}
-  .hero{padding-top:125px}
-  .logo{width:165px;height:165px}
-  .eyebrow{font-size:10px;letter-spacing:3px}
-  .hero p{font-size:14px}
-  section{padding:75px 6%}
-  .cards{grid-template-columns:1fr}
+/* FOOD SECTION */
+.food-section{
+ text-align:center;
+ background:
+ radial-gradient(ellipse at 50% 0%,#28190b,#100d08 60%);
 }
-@media(max-width:390px){
-  .brand{font-size:16px}
-  .nav-links{gap:7px}
-  .nav-links a{font-size:7px}
+.food-grid{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:25px;
+ margin-top:50px;
+}
+.food-card{
+ position:relative;
+ overflow:hidden;
+ background:linear-gradient(145deg,#21180e,#0a0805);
+ border:1px solid #d8b16f45;
+ min-height:310px;
+ transition:transform .5s,border-color .5s,box-shadow .5s;
+ transform-style:preserve-3d;
+}
+.food-card:hover{
+ transform:translateY(-12px) scale(1.025);
+ border-color:var(--gold);
+ box-shadow:0 20px 45px #0009,0 0 25px #d8b16f15;
+}
+.food-art{
+ height:175px;
+ display:flex;
+ align-items:center;
+ justify-content:center;
+ position:relative;
+ overflow:hidden;
+ background:radial-gradient(circle,#50351a,#160f08 70%);
+}
+.food-art:before{
+ content:"";
+ position:absolute;
+ width:180px;height:180px;
+ border:1px solid #d8b16f35;
+ border-radius:50%;
+ animation:orbit 30s linear infinite;
+}
+.food-art:after{
+ content:"";
+ position:absolute;
+ width:135px;height:135px;
+ border:1px dashed #d8b16f35;
+ border-radius:50%;
+}
+.food-emoji{
+ font-size:85px;
+ position:relative;
+ z-index:2;
+ filter:drop-shadow(0 10px 12px #0009);
+ transition:.5s;
+}
+.food-card:hover .food-emoji{
+ transform:scale(1.2) rotate(-7deg);
+}
+.food-info{padding:23px 18px 28px}
+.food-info h3{
+ font:600 28px 'Cormorant Garamond',serif;
+ color:var(--gold2);
+ margin-bottom:10px;
+}
+.food-info p{
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.8;
+}
+.food-tag{
+ color:var(--gold);
+ font-size:9px;
+ letter-spacing:3px;
+ margin-bottom:10px;
+}
+
+/* EXPERIENCE */
+.experience{
+ background:#0b0906;
+ text-align:center;
+}
+.cards{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:23px;
+ margin-top:45px;
+}
+.card{
+ padding:42px 25px;
+ border:1px solid #d8b16f40;
+ background:linear-gradient(145deg,#20170d,#0b0906);
+ transition:.4s;
+}
+.card:hover{
+ transform:translateY(-10px);
+ border-color:var(--gold);
+}
+.number{
+ font:44px 'Cormorant Garamond',serif;
+ color:var(--gold);
+ margin-bottom:15px;
+}
+.card h3{
+ font:29px 'Cormorant Garamond',serif;
+ margin-bottom:15px;
+}
+.card p{
+ color:var(--muted);
+ font-size:13px;
+ line-height:1.8;
+}
+
+/* BULK ORDERS */
+.bulk{
+ text-align:center;
+ background:radial-gradient(ellipse,#2b1b0c,#080705 75%);
+}
+.bulk p{
+ max-width:700px;
+ margin:0 auto 30px;
+ color:var(--muted);
+ line-height:2;
+}
+
+/* CONTACT */
+.contact{
+ text-align:center;
+ background:#100d08;
+}
+.contact p{color:var(--muted);margin:20px 0 30px}
+.contact-links{
+ display:flex;
+ justify-content:center;
+ flex-wrap:wrap;
+ gap:16px;
+}
+footer{
+ text-align:center;
+ padding:35px 15px;
+ color:#9c8d79;
+ font-size:11px;
+ letter-spacing:2px;
+ border-top:1px solid #d8b16f30;
+}
+
+/* REVEAL ANIMATION */
+.reveal{
+ opacity:0;
+ transform:translateY(45px);
+ transition:opacity .9s ease,transform .9s ease;
+}
+.reveal.show{
+ opacity:1;
+ transform:translateY(0);
+}
+.delay1{transition-delay:.12s}
+.delay2{transition-delay:.24s}
+
+/* MOBILE */
+@media(max-width:750px){
+ nav{padding:15px 3%}
+ .brand{font-size:18px;letter-spacing:2px}
+ .nav-links{gap:9px}
+ .nav-links a{font-size:8px;letter-spacing:0}
+ .hero{padding-top:130px}
+ .logo{width:210px}
+ .eyebrow{font-size:9px;letter-spacing:3px}
+ section{padding:75px 6%}
+ .food-grid,.cards{grid-template-columns:1fr}
+ .food-card{min-height:290px}
+}
+@media(prefers-reduced-motion:reduce){
+ *,*:before,*:after{
+  animation-duration:.01ms!important;
+  animation-iteration-count:1!important;
+  scroll-behavior:auto!important;
+  transition-duration:.01ms!important;
+ }
 }
 </style>
 </head>
@@ -284,192 +429,273 @@ footer{
 <body>
 
 <nav>
-  <div class="brand">LE NOIR CAFÉ</div>
-  <div class="nav-links">
-    <a href="#home">HOME</a>
-    <a href="#about">ABOUT</a>
-    <a href="#experience">EXPERIENCE</a>
-    <a href="#bulk">BULK ORDERS</a>
-    <a href="#contact">ENQUIRE</a>
-  </div>
+ <div class="brand">LE NOIR CAFÉ</div>
+ <div class="nav-links">
+  <a href="#home">HOME</a>
+  <a href="#about">ABOUT</a>
+  <a href="#food">FOOD</a>
+  <a href="#experience">EXPERIENCE</a>
+  <a href="#contact">ENQUIRE</a>
+ </div>
 </nav>
 
 <header class="hero" id="home">
+ <div class="orbit"></div>
+ <div class="particles" id="particles"></div>
 
-  <!-- LE NOIR CAFÉ LOGO: DRAWN DIRECTLY IN SVG -->
-  <div class="logo">
-    <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
-      <circle cx="100" cy="100" r="93" fill="#000"/>
-      <circle cx="100" cy="100" r="88" fill="none" stroke="#d9b16f" stroke-width="1.8"/>
+ <!-- EMBEDDED LE NOIR LOGO -->
+ <div class="logo">
+ <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
+ <defs>
+  <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+   <stop offset="0" stop-color="#f8dfaa"/>
+   <stop offset=".5" stop-color="#d8ad68"/>
+   <stop offset="1" stop-color="#9c7038"/>
+  </linearGradient>
+ </defs>
+ <circle cx="300" cy="300" r="292" fill="#020202"/>
+ <circle cx="300" cy="300" r="280" fill="none" stroke="url(#gold)" stroke-width="5"/>
+ <circle cx="300" cy="300" r="268" fill="none" stroke="#d8ad68" stroke-width="1.5"/>
 
-      <!-- Steam -->
-      <path d="M91 57 C76 44 105 36 95 21
-               M105 58 C121 43 98 35 110 25"
-            fill="none" stroke="#d9b16f" stroke-width="3.5"
-            stroke-linecap="round"/>
+ <g fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round">
+  <path d="M272 171 C223 129 306 111 278 65"/>
+  <path d="M314 169 C365 128 282 107 326 62"/>
+  <path d="M296 169 C266 139 319 121 302 94" stroke-width="7"/>
+ </g>
+ <ellipse cx="293" cy="211" rx="91" ry="21" fill="#080705" stroke="url(#gold)" stroke-width="7"/>
+ <ellipse cx="293" cy="208" rx="77" ry="12" fill="#120d07" stroke="#b98d50" stroke-width="3"/>
+ <path d="M207 214 L226 333 Q231 369 292 372 Q354 369 360 333 L380 214"
+       fill="#080705" stroke="url(#gold)" stroke-width="8" stroke-linejoin="round"/>
+ <path d="M228 239 L248 333 Q254 350 291 353 Q330 350 337 333 L357 239"
+       fill="none" stroke="#c99d5b" stroke-width="4"/>
+ <path d="M252 246 L263 334 M292 248 L292 348 M333 246 L321 334"
+       fill="none" stroke="#d8ad68" stroke-width="5" stroke-linecap="round"/>
+ <path d="M373 238 C445 207 462 279 423 318 C409 333 387 337 359 326"
+       fill="none" stroke="url(#gold)" stroke-width="11" stroke-linecap="round"/>
+ <path d="M380 252 C418 238 435 270 413 296"
+       fill="none" stroke="#d8ad68" stroke-width="4"/>
+ <g stroke="url(#gold)" stroke-width="6" fill="#100b06">
+  <ellipse cx="405" cy="355" rx="39" ry="19" transform="rotate(-25 405 355)"/>
+  <path d="M371 370 Q402 346 436 339" fill="none" stroke-width="4"/>
+  <ellipse cx="443" cy="376" rx="36" ry="17" transform="rotate(18 443 376)"/>
+  <path d="M410 363 Q444 377 472 385" fill="none" stroke-width="4"/>
+  <ellipse cx="355" cy="393" rx="26" ry="13" transform="rotate(-12 355 393)"/>
+ </g>
+ <path d="M190 392 Q240 420 300 408 Q360 420 410 392"
+       fill="none" stroke="url(#gold)" stroke-width="4"/>
+ <text x="300" y="475" text-anchor="middle" fill="url(#gold)"
+       font-family="Georgia,serif" font-size="83" font-weight="bold"
+       letter-spacing="-3">LE NOIR</text>
+ <path d="M85 502 H208 M392 502 H515" stroke="url(#gold)" stroke-width="4"/>
+ <text x="300" y="526" text-anchor="middle" fill="url(#gold)"
+       font-family="Georgia,serif" font-size="39" letter-spacing="15">CAFÉ</text>
+ <path d="M283 545 L300 559 L317 545" fill="none" stroke="#d8ad68" stroke-width="4"/>
+ </svg>
+ </div>
 
-      <!-- Cup -->
-      <path d="M63 62 Q100 54 137 62 L129 112
-               Q126 126 101 127 Q76 126 72 112 Z"
-            fill="none" stroke="#d9b16f" stroke-width="3"/>
-
-      <path d="M137 70 Q165 66 158 91
-               Q153 108 132 105"
-            fill="none" stroke="#d9b16f" stroke-width="3"/>
-
-      <path d="M72 69 L128 69 M80 78 L86 112
-               M96 78 L98 117 M113 78 L109 115"
-            fill="none" stroke="#d9b16f" stroke-width="2"/>
-
-      <path d="M69 132 Q100 141 133 132"
-            fill="none" stroke="#d9b16f" stroke-width="2"/>
-
-      <!-- Coffee beans -->
-      <ellipse cx="143" cy="120" rx="12" ry="6"
-               transform="rotate(-28 143 120)"
-               fill="none" stroke="#d9b16f" stroke-width="2"/>
-      <path d="M135 125 Q143 118 151 114"
-            fill="none" stroke="#d9b16f" stroke-width="1.5"/>
-
-      <ellipse cx="153" cy="132" rx="10" ry="5"
-               transform="rotate(20 153 132)"
-               fill="none" stroke="#d9b16f" stroke-width="2"/>
-      <path d="M145 129 Q153 132 160 135"
-            fill="none" stroke="#d9b16f" stroke-width="1.4"/>
-
-      <!-- Main brand text -->
-      <text x="100" y="157"
-            text-anchor="middle"
-            fill="#d9b16f"
-            font-family="Georgia,serif"
-            font-size="28"
-            font-weight="bold"
-            letter-spacing="-1">LE NOIR</text>
-
-      <path d="M25 166 H66 M134 166 H175"
-            stroke="#d9b16f" stroke-width="1.5"/>
-
-      <text x="100" y="180"
-            text-anchor="middle"
-            fill="#d9b16f"
-            font-family="Georgia,serif"
-            font-size="15"
-            letter-spacing="5">CAFÉ</text>
-    </svg>
-  </div>
-
-  <div class="eyebrow">A SIGNATURE EXPERIENCE · THALASSERY</div>
-
-  <h1>
-    Exceptional Food.<br>
-    <span>Beautifully Brought Together.</span>
-  </h1>
-
-  <p>
-    Discover the signature flavours of Le Noir Café.
-    Thoughtfully prepared food, memorable moments and
-    a premium culinary experience in Thalassery.
-    Now accepting online bulk order enquiries.
-  </p>
-
-  <a href="#contact" class="btn">DISCOVER LE NOIR →</a>
+ <div class="eyebrow">A SIGNATURE EXPERIENCE · THALASSERY</div>
+ <h1>Exceptional Food.<br><span>Beautifully Brought Together.</span></h1>
+ <p>
+ Discover the signature flavours of Le Noir Café.
+ Experience the rich food culture of Malabar,
+ thoughtfully prepared food and memorable moments
+ in Thalassery, Kerala.
+ </p>
+ <a href="#food" class="btn">EXPLORE OUR FLAVOURS ↓</a>
+ <div class="scroll">SCROLL TO DISCOVER ↓</div>
 </header>
 
 <div class="marquee">
-  <span>
-    LE NOIR CAFÉ ✦ EXCEPTIONAL FOOD ✦ BEAUTIFUL MOMENTS ✦
-    THALASSERY ✦ LE NOIR CAFÉ ✦ EXCEPTIONAL FOOD ✦ BEAUTIFUL MOMENTS ✦
-    THALASSERY ✦
-  </span>
+ <span>
+ THALASSERY FLAVOURS ✦ KALLUMMAKKAYA PORICHATH ✦
+ MALABAR SPECIALITIES ✦ LE NOIR CAFÉ ✦
+ THALASSERY FLAVOURS ✦ KALLUMMAKKAYA PORICHATH ✦
+ MALABAR SPECIALITIES ✦ LE NOIR CAFÉ ✦
+ </span>
 </div>
 
 <section id="about">
-  <div class="about reveal">
-    <div class="label">OUR STORY</div>
-    <h2 class="heading">More Than Just a Café.</h2>
-    <p>
-      Welcome to Le Noir Café, where flavour meets elegance.
-      We believe every meal should be an experience worth
-      remembering. From carefully prepared food to the little
-      details that make every visit special, our aim is to bring
-      people together through great food and memorable moments.
-    </p>
-  </div>
+ <div class="about reveal">
+  <div class="label">OUR STORY</div>
+  <h2 class="heading">More Than Just a Café.</h2>
+  <p>
+   Welcome to Le Noir Café, where flavour meets elegance.
+   Inspired by the rich culinary traditions of Malabar,
+   we celebrate good food, warm hospitality and beautiful
+   moments. Every visit should feel special.
+  </p>
+ </div>
+</section>
+
+<!-- THALASSERY FOOD COLLECTION -->
+<section class="food-section" id="food">
+ <div class="reveal">
+  <div class="label">THE TASTE OF MALABAR</div>
+  <h2 class="heading">Flavours of Thalassery.</h2>
+  <p class="section-intro">
+   A celebration of Malabar's famous food culture.
+  </p>
+ </div>
+
+ <div class="food-grid">
+
+  <article class="food-card reveal">
+   <div class="food-art"><div class="food-emoji">🦪</div></div>
+   <div class="food-info">
+    <div class="food-tag">MALABAR SPECIAL</div>
+    <h3>Kallummakkaya Porichath</h3>
+    <p>A much-loved Malabar mussel delicacy, known for its rich and spicy flavours.</p>
+   </div>
+  </article>
+
+  <article class="food-card reveal delay1">
+   <div class="food-art"><div class="food-emoji">🍛</div></div>
+   <div class="food-info">
+    <div class="food-tag">THALASSERY CLASSIC</div>
+    <h3>Thalassery Biryani</h3>
+    <p>The iconic Malabar biryani, celebrated for its fragrant rice and distinctive spices.</p>
+   </div>
+  </article>
+
+  <article class="food-card reveal delay2">
+   <div class="food-art"><div class="food-emoji">🥟</div></div>
+   <div class="food-info">
+    <div class="food-tag">SWEET TRADITION</div>
+    <h3>Unnakkaya</h3>
+    <p>A traditional Malabar banana sweet with a delicious filling.</p>
+   </div>
+  </article>
+
+  <article class="food-card reveal">
+   <div class="food-art"><div class="food-emoji">🍮</div></div>
+   <div class="food-info">
+    <div class="food-tag">MALABAR DESSERT</div>
+    <h3>Chatti Pathiri</h3>
+    <p>A layered Malabar speciality, enjoyed in sweet and savoury styles.</p>
+   </div>
+  </article>
+
+  <article class="food-card reveal delay1">
+   <div class="food-art"><div class="food-emoji">🥞</div></div>
+   <div class="food-info">
+    <div class="food-tag">LOCAL FAVOURITE</div>
+    <h3>Pathiri</h3>
+    <p>A soft rice-based flatbread loved across the Malabar region.</p>
+   </div>
+  </article>
+
+  <article class="food-card reveal delay2">
+   <div class="food-art"><div class="food-emoji">🍗</div></div>
+   <div class="food-info">
+    <div class="food-tag">MALABAR FLAVOUR</div>
+    <h3>Malabar Chicken</h3>
+    <p>A flavourful regional chicken preparation with aromatic spices.</p>
+   </div>
+  </article>
+
+ </div>
 </section>
 
 <section class="experience" id="experience">
-  <div class="reveal">
-    <div class="label">THE LE NOIR EXPERIENCE</div>
-    <h2 class="heading">Made for Every Moment.</h2>
+ <div class="reveal">
+  <div class="label">THE LE NOIR EXPERIENCE</div>
+  <h2 class="heading">Made for Every Moment.</h2>
+ </div>
+ <div class="cards">
+  <div class="card reveal">
+   <div class="number">01</div>
+   <h3>Signature Flavours</h3>
+   <p>Enjoy delicious food inspired by the culinary heritage of Malabar.</p>
   </div>
-
-  <div class="cards">
-    <div class="card reveal">
-      <div class="number">01</div>
-      <h3>Signature Flavours</h3>
-      <p>Enjoy thoughtfully prepared food and flavours made to leave a lasting impression.</p>
-    </div>
-
-    <div class="card reveal">
-      <div class="number">02</div>
-      <h3>Beautiful Moments</h3>
-      <p>A place to connect, relax and create memorable moments with people you love.</p>
-    </div>
-
-    <div class="card reveal">
-      <div class="number">03</div>
-      <h3>Special Orders</h3>
-      <p>Planning a gathering or celebration? Contact us for bulk order enquiries.</p>
-    </div>
+  <div class="card reveal delay1">
+   <div class="number">02</div>
+   <h3>Beautiful Moments</h3>
+   <p>A place to connect, relax and create memorable moments.</p>
   </div>
+  <div class="card reveal delay2">
+   <div class="number">03</div>
+   <h3>Special Orders</h3>
+   <p>Planning a gathering? Contact us for bulk order enquiries.</p>
+  </div>
+ </div>
 </section>
 
 <section class="bulk" id="bulk">
-  <div class="reveal">
-    <div class="label">BULK ORDERS & EVENTS</div>
-    <h2 class="heading">Something Special Planned?</h2>
-    <p>
-      Make your gatherings more memorable with Le Noir Café.
-      Contact our team to discuss bulk orders and your requirements.
-    </p>
-    <a href="#contact" class="btn">MAKE AN ENQUIRY</a>
-  </div>
+ <div class="reveal">
+  <div class="label">BULK ORDERS & EVENTS</div>
+  <h2 class="heading">Something Special Planned?</h2>
+  <p>
+   Make your celebrations more memorable with Le Noir Café.
+   Contact our team to discuss your bulk order requirements.
+  </p>
+  <a href="#contact" class="btn">MAKE AN ENQUIRY</a>
+ </div>
 </section>
 
 <section class="contact" id="contact">
-  <div class="reveal">
-    <div class="label">GET IN TOUCH</div>
-    <h2 class="heading">Let's Connect.</h2>
-    <p>Le Noir Café · Thalassery, Kerala</p>
-
-    <div class="contact-links">
-      <a class="btn" href="https://www.instagram.com/le_noircafe/" target="_blank">INSTAGRAM</a>
-      <a class="btn" href="https://wa.me/91XXXXXXXXXX" target="_blank">WHATSAPP</a>
-    </div>
+ <div class="reveal">
+  <div class="label">GET IN TOUCH</div>
+  <h2 class="heading">Let's Connect.</h2>
+  <p>Le Noir Café · Thalassery, Kerala</p>
+  <div class="contact-links">
+   <a class="btn" href="https://www.instagram.com/le_noircafe/" target="_blank">INSTAGRAM ↗</a>
+   <a class="btn" href="https://wa.me/91XXXXXXXXXX" target="_blank">WHATSAPP ↗</a>
   </div>
+ </div>
 </section>
 
 <footer>
-  © <span id="year"></span> LE NOIR CAFÉ · THALASSERY
-  <br><br>
-  CRAFTED WITH ELEGANCE.
+ © <span id="year"></span> LE NOIR CAFÉ · THALASSERY
+ <br><br>CRAFTED WITH ELEGANCE.
 </footer>
 
 <script>
-document.getElementById("year").textContent =
-  new Date().getFullYear();
+// DYNAMIC YEAR
+document.getElementById("year").textContent=new Date().getFullYear();
 
-const observer = new IntersectionObserver(entries=>{
-  entries.forEach(entry=>{
-    if(entry.isIntersecting){
-      entry.target.classList.add("show");
-    }
-  });
-},{threshold:0.15});
+// FLOATING GOLD PARTICLES
+const particleBox=document.getElementById("particles");
+for(let i=0;i<32;i++){
+ const p=document.createElement("span");
+ p.className="particle";
+ p.style.left=Math.random()*100+"%";
+ p.style.bottom="-20px";
+ p.style.animationDuration=(7+Math.random()*12)+"s";
+ p.style.animationDelay=(Math.random()*12)+"s";
+ p.style.width=(2+Math.random()*3)+"px";
+ p.style.height=p.style.width;
+ particleBox.appendChild(p);
+}
+
+// SCROLL REVEAL
+const observer=new IntersectionObserver(entries=>{
+ entries.forEach(entry=>{
+  if(entry.isIntersecting){
+   entry.target.classList.add("show");
+   observer.unobserve(entry.target);
+  }
+ });
+},{threshold:.12});
 
 document.querySelectorAll(".reveal").forEach(el=>{
-  observer.observe(el);
+ observer.observe(el);
 });
+
+// SUBTLE FOOD CARD TILT ON POINTER DEVICES
+if(window.matchMedia("(pointer:fine)").matches){
+ document.querySelectorAll(".food-card").forEach(card=>{
+  card.addEventListener("mousemove",e=>{
+   const r=card.getBoundingClientRect();
+   const x=(e.clientX-r.left)/r.width-.5;
+   const y=(e.clientY-r.top)/r.height-.5;
+   card.style.transform=
+    `perspective(800px) rotateX(${-y*5}deg) rotateY(${x*5}deg) translateY(-8px)`;
+  });
+  card.addEventListener("mouseleave",()=>{
+   card.style.transform="";
+  });
+ });
+}
 </script>
 
 </body>
