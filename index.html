@@ -210,7 +210,11 @@ h1,h2,h3{font-family:'Playfair Display',serif;font-weight:500}
 }
 .food-card:hover{transform:translateY(-9px);box-shadow:0 20px 40px #00000012}
 .food-card .food-img{height:245px;overflow:hidden}
-.food-card img{height:100%;transition:.7s}
+.food-card img{
+  height:100%;
+  transition:.7s;
+  object-position:center;
+}
 .food-card:hover img{transform:scale(1.07)}
 .food-info{padding:24px}
 .food-info .number{
@@ -357,7 +361,7 @@ footer{
     <a href="#menu" class="btn">Discover our flavours <span>↗</span></a>
   </div>
   <div class="hero-photo">
-    <img src="https://s7ap1.scene7.com/is/image/itcportalprod/Thalassery%20Chicken%20Biryani%20-%20Web%20Banner%20Image" alt="Thalassery chicken biryani served in a traditional brass pot">
+    <img src="https://s7ap1.scene7.com/is/image/itcportalprod/Thalassery%20Chicken%20Biryani%20-%20Web%20Banner%20Image" alt="Thalassery food">
     <div class="photo-tag">
       <small>A taste of home</small>
       <strong>Made with soul.</strong>
@@ -388,56 +392,80 @@ footer{
 <section class="section menu-section" id="menu">
   <div class="section-head reveal">
     <div class="eyebrow">A taste worth remembering</div>
-    <h2>Flavours of Malabar</h2>
-    <p>A little inspiration from the rich food culture of Thalassery and Kannur.</p>
+    <h2>Thalassery Kadikal</h2>
+    <p>Traditional Malabar snacks, sweet favourites and local tea-time delicacies.</p>
   </div>
 
   <div class="food-grid">
+
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://keralacurryhouse.com/cdn/shop/files/70aa2a4db7f990373ca9c376323e3dea_2.jpg?v=1756151838" alt="Thalassery biryani">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Unnakkaya.JPG" alt="Golden homemade Thalassery Unnakaya">
       </div>
       <div class="food-info">
         <div class="number">01 / MALABAR CLASSIC</div>
-        <h3>Thalassery Biryani</h3>
-        <p>A celebrated Malabar favourite, known for its fragrant kaima rice and beautiful layers of spice.</p>
+        <h3>Unnakaya</h3>
+        <p>Golden-fried ripe banana rolls with a deliciously sweet coconut filling.</p>
       </div>
     </article>
 
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://b.zmtcdn.com/data/pictures/4/22083854/28b13bfaacd53076e19b9052bf2a2e42_o2_featured_v2.jpg" alt="Malabar snack and curry">
+        <img src="https://images.squarespace-cdn.com/content/v1/578753d7d482e9c3a909de40/1726257736179-A9HDZRCPREV6P824TJT9/IMG_9785.jpg" alt="Traditional Malabar Mutta Surka">
       </div>
       <div class="food-info">
         <div class="number">02 / LOCAL FAVOURITE</div>
-        <h3>Malabar Snacks</h3>
-        <p>Golden, crispy and full of character — inspired by the lively snack culture of the region.</p>
+        <h3>Mutta Surka</h3>
+        <p>A soft, traditional egg-based Malabar snack, loved with a cup of tea.</p>
       </div>
     </article>
 
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://res.cloudinary.com/jerrick/image/upload/c_scale%2Cf_jpg%2Cq_auto/whltzo97ualdtycytgqf.jpg" alt="Traditional Kerala curries and side dishes">
+        <img src="https://i0.wp.com/www.sujiscooking.com/wp-content/uploads/2014/12/pazham-nirachathu-recipe.1024x1024.jpg?fit=1024%2C682&ssl=1" alt="Golden Pazham Nirachathu stuffed banana">
       </div>
       <div class="food-info">
-        <div class="number">03 / TRADITION</div>
-        <h3>Malabar Curry</h3>
-        <p>Rich colours, local ingredients and the comforting taste of traditional coastal cooking.</p>
+        <div class="number">03 / SWEET SPECIAL</div>
+        <h3>Pazham Nirachathu</h3>
+        <p>Ripe banana filled with a sweet coconut mixture and fried until golden.</p>
       </div>
     </article>
 
     <article class="food-card reveal">
       <div class="food-img">
-        <img src="https://images.unsplash.com/photo-1626777552726-4a6b54c97e46?auto=format&fit=crop&w=1000&q=85" alt="Kallummakkaya Porichath, Malabar-style fried mussels">
+        <img src="https://www.curryd.com/images/main_images/chatti-pathiri-1707749819.jpg" alt="Layered Malabar Chatti Pathiri">
       </div>
       <div class="food-info">
-        <div class="number">04 / MALABAR SEAFOOD</div>
+        <div class="number">04 / TRADITIONAL DELIGHT</div>
+        <h3>Chatti Pathiri</h3>
+        <p>A beautiful layered Malabar speciality with a rich, flavourful filling.</p>
+      </div>
+    </article>
+
+    <article class="food-card reveal">
+      <div class="food-img">
+        <img src="https://img.onmanorama.com/content/dam/mm/en/archive/food/features/images/2026/3/4/mussels-3.jpg" alt="Spicy Malabar Kallummakkaya mussels">
+      </div>
+      <div class="food-info">
+        <div class="number">05 / MALABAR SPECIAL</div>
         <h3>Kallummakkaya Porichath</h3>
-        <p>A much-loved Malabar seafood delicacy — mussels coated in aromatic spices and fried to a delicious golden finish.</p>
+        <p>Malabar-style mussels coated in aromatic spices and cooked to a delicious finish.</p>
       </div>
     </article>
+
+    <article class="food-card reveal">
+      <div class="food-img">
+        <img src="https://img.onmanorama.com/content/dam/mm/en/food/features/images/2024/10/10/muttamala.jpg.transform/schema-4x3/image.jpg" alt="Golden strands of traditional Malabar Mutta Mala">
+      </div>
+      <div class="food-info">
+        <div class="number">06 / SWEET TRADITION</div>
+        <h3>Mutta Mala</h3>
+        <p>Delicate golden egg threads, a special sweet from the Malabar kitchen.</p>
+      </div>
+    </article>
+
   </div>
-  <p class="food-note">Food photographs are illustrative references from external publishers. Replace them with Le Noir Café's own dish photos for an accurate restaurant menu.</p>
+  <p class="food-note">Photographs are illustrative references from external publishers. Replace them with your own or properly licensed café photographs before commercial use.</p>
 </section>
 
 <section class="experience">
@@ -455,13 +483,13 @@ footer{
 <section class="section" id="gallery">
   <div class="section-head reveal">
     <div class="eyebrow">A visual taste</div>
-    <h2>From the Malabar table</h2>
-    <p>A glimpse of the culinary culture that inspires us.</p>
+    <h2>Thalassery Snack Stories</h2>
+    <p>A glimpse of the traditional snacks that inspire us.</p>
   </div>
   <div class="gallery reveal">
-    <img src="https://keralacurryhouse.com/cdn/shop/files/70aa2a4db7f990373ca9c376323e3dea_2.jpg?v=1756151838" alt="Thalassery biryani served in a traditional pot">
-    <img src="https://b.zmtcdn.com/data/pictures/4/22083854/28b13bfaacd53076e19b9052bf2a2e42_o2_featured_v2.jpg" alt="Malabar snack">
-    <img src="https://keralacurryhouse.com/cdn/shop/files/70aa2a4db7f990373ca9c376323e3dea_2.jpg?v=1756151838" alt="Biryani serving">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/f/fc/Unnakkaya.JPG" alt="Unnakaya">
+    <img src="https://www.curryd.com/images/main_images/chatti-pathiri-1707749819.jpg" alt="Chatti Pathiri">
+    <img src="https://img.onmanorama.com/content/dam/mm/en/archive/food/features/images/2026/3/4/mussels-3.jpg" alt="Kallummakkaya">
   </div>
 </section>
 
